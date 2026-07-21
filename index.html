@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ezequias Luz | Educador Físico e Personal Trainer</title>
+<meta name="description" content="Consultoria online e treino presencial com acompanhamento real. Saúde, performance e resultados com Ezequias Luz.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600;700;800&display=swap');
+
+:root{
+  --black:#0b0b0d;
+  --panel:#151517;
+  --panel2:#1c1c20;
+  --red:#d81f2e;
+  --red-deep:#7c0f1a;
+  --silver:#c7cbd3;
+  --white:#f3f2ee;
+  --muted:#8d9099;
+  --line:rgba(199,203,211,0.14);
+  --radius:2px;
+}
+
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  background:var(--black);
+  color:var(--white);
+  font-family:'Inter',sans-serif;
+  line-height:1.6;
+  overflow-x:hidden;
+}
+img{max-width:100%;display:block;}
+a{color:inherit;text-decoration:none;}
+button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit;}
+
+.eyebrow{
+  font-family:'Oswald',sans-serif;
+  text-transform:uppercase;
+  letter-spacing:0.22em;
+  font-size:0.72rem;
+  font-weight:600;
+  color:var(--red);
+}
+h1,h2,h3{
+  font-family:'Anton',sans-serif;
+  font-weight:400;
+  text-transform:uppercase;
+  letter-spacing:0.01em;
+  line-height:1.02;
+}
+h2{font-size:clamp(2.1rem,5vw,3.4rem);margin-top:0.5rem;}
+h3{font-size:1.35rem;letter-spacing:0.02em;}
+p{color:var(--silver);}
+.wrap{max-width:1180px;margin:0 auto;padding:0 24px;}
+.section{padding:110px 0;position:relative;}
+.section-head{max-width:640px;margin-bottom:56px;}
+
+/* ===== HEADER ===== */
+header{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  background:rgba(11,11,13,0.86);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);
+}
+.nav-inner{
+  max-width:1180px;margin:0 auto;padding:14px 24px;
+  display:flex;align-items:center;justify-content:space-between;gap:24px;
+}
+.brand{display:flex;align-items:center;gap:12px;}
+.brand img{width:44px;height:44px;border-radius:50%;object-fit:cover;}
+.brand span{font-family:'Anton',sans-serif;font-size:1.05rem;letter-spacing:0.03em;text-transform:uppercase;}
+nav.links{display:flex;gap:28px;font-family:'Oswald',sans-serif;font-size:0.82rem;text-transform:uppercase;letter-spacing:0.08em;font-weight:500;}
+nav.links a{color:var(--silver);transition:color .2s;white-space:nowrap;}
+nav.links a:hover{color:var(--white);}
+.head-actions{display:flex;align-items:center;gap:14px;}
+.lang-toggle{
+  display:flex;border:1px solid var(--line);border-radius:20px;overflow:hidden;font-family:'Oswald',sans-serif;font-size:0.72rem;letter-spacing:0.06em;
+}
+.lang-toggle button{padding:6px 13px;color:var(--muted);}
+.lang-toggle button.active{background:var(--red);color:var(--white);}
+.btn{
+  display:inline-flex;align-items:center;gap:10px;
+  padding:13px 24px;font-family:'Oswald',sans-serif;font-weight:600;
+  text-transform:uppercase;letter-spacing:0.08em;font-size:0.82rem;
+  border-radius:var(--radius);transition:transform .18s ease, background .18s ease;
+}
+.btn-primary{background:var(--red);color:var(--white);}
+.btn-primary:hover{background:#f0222f;transform:translateY(-2px);}
+.btn-ghost{border:1px solid var(--line);color:var(--white);}
+.btn-ghost:hover{border-color:var(--silver);}
+.btn-sm{padding:10px 18px;font-size:0.74rem;}
+@media(max-width:920px){nav.links{display:none;}}
+
+/* ===== HERO ===== */
+.hero{
+  position:relative;min-height:100vh;display:flex;align-items:flex-end;
+  padding-top:120px;
+}
+.hero-bg{
+  position:absolute;inset:0;z-index:-2;
+  background-image:linear-gradient(180deg, rgba(11,11,13,0.35) 0%, rgba(11,11,13,0.55) 45%, var(--black) 96%), url('assets/img/premio-2.jpg');
+  background-size:cover;background-position:center 20%;
+  filter:grayscale(0.15);
+}
+.hero-inner{padding-bottom:90px;position:relative;}
+.hero-tag{display:flex;align-items:center;gap:10px;margin-bottom:22px;}
+.hero-tag .dot{width:8px;height:8px;background:var(--red);border-radius:50%;}
+.hero h1{font-size:clamp(3rem,8.4vw,6.6rem);max-width:920px;}
+.hero h1 em{font-style:normal;color:var(--red);}
+.hero .lead{max-width:520px;margin-top:22px;font-size:1.05rem;}
+.hero-cta{display:flex;gap:16px;margin-top:38px;flex-wrap:wrap;}
+.hero-stats{
+  display:grid;grid-template-columns:repeat(3,auto);gap:48px;
+  margin-top:64px;padding-top:32px;border-top:1px solid var(--line);
+  max-width:640px;
+}
+.hero-stats .num{font-family:'Anton',sans-serif;font-size:2rem;color:var(--white);}
+.hero-stats .lbl{font-family:'Oswald',sans-serif;font-size:0.68rem;text-transform:uppercase;letter-spacing:0.08em;color:var(--muted);margin-top:4px;}
+
+/* ===== SOBRE ===== */
+.sobre{display:grid;grid-template-columns:0.85fr 1.15fr;gap:64px;align-items:center;}
+.sobre-media{position:relative;}
+.sobre-media img{border-radius:var(--radius);object-fit:contain;width:100%;height:auto;background:var(--panel);}
+.sobre-media .frame{
+  position:absolute;top:-18px;left:-18px;right:18px;bottom:18px;
+  border:1px solid var(--red);z-index:-1;
+}
+.sobre-list{margin-top:28px;display:flex;flex-direction:column;gap:14px;}
+.sobre-list li{list-style:none;display:flex;gap:12px;color:var(--silver);font-size:0.96rem;}
+.sobre-list li::before{content:"";width:6px;height:6px;background:var(--red);margin-top:9px;flex-shrink:0;border-radius:1px;}
+@media(max-width:860px){.sobre{grid-template-columns:1fr;}}
+
+/* ===== SERVICOS ===== */
+.serv-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2px;background:var(--line);border:1px solid var(--line);}
+.serv-card{background:var(--panel);padding:44px 38px;transition:background .2s;}
+.serv-card:hover{background:var(--panel2);}
+.serv-card .tag{font-family:'Oswald',sans-serif;font-size:0.7rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--red);}
+.serv-card h3{margin-top:14px;}
+.serv-card p{margin-top:14px;font-size:0.94rem;}
+.serv-card ul{margin-top:18px;display:flex;flex-direction:column;gap:8px;}
+.serv-card ul li{list-style:none;font-size:0.88rem;color:var(--muted);padding-left:16px;position:relative;}
+.serv-card ul li::before{content:"›";position:absolute;left:0;color:var(--red);}
+@media(max-width:760px){.serv-grid{grid-template-columns:1fr;}}
+
+/* ===== DIFERENCIAL TEA ===== */
+.diferencial{
+  background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
+  padding:56px;display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;
+}
+.diferencial img{border-radius:var(--radius);object-fit:contain;width:100%;height:auto;background:var(--black);}
+@media(max-width:860px){.diferencial{grid-template-columns:1fr;padding:32px;}}
+
+/* ===== DIAGNOSTICO (signature quiz) ===== */
+.diag{background:linear-gradient(180deg,var(--black),#111113 60%);}
+.diag-card{
+  max-width:640px;margin:0 auto;background:var(--panel);
+  border:1px solid var(--line);border-radius:var(--radius);
+  padding:48px;position:relative;overflow:hidden;
+}
+.diag-card::before{
+  content:"";position:absolute;top:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,var(--red-deep),var(--red));
+}
+.serie-label{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;}
+.serie-label .tag{font-family:'Oswald',sans-serif;font-size:0.74rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);}
+.serie-label .tag b{color:var(--red);}
+.bar-track{display:flex;gap:6px;margin-bottom:34px;}
+.bar-seg{flex:1;height:4px;background:var(--line);border-radius:2px;overflow:hidden;}
+.bar-seg.done{background:var(--red);}
+.diag-question{font-family:'Anton',sans-serif;font-size:1.5rem;text-transform:none;line-height:1.25;margin-bottom:30px;min-height:76px;}
+.diag-options{display:flex;flex-direction:column;gap:12px;}
+.diag-opt{
+  text-align:left;padding:17px 20px;border:1px solid var(--line);border-radius:var(--radius);
+  font-size:0.98rem;color:var(--white);transition:border-color .18s, background .18s;
+}
+.diag-opt:hover{border-color:var(--red);background:rgba(216,31,46,0.08);}
+.diag-result{display:none;}
+.diag-result.show{display:block;}
+.diag-result .eyebrow{margin-bottom:10px;}
+.diag-result p{margin-top:16px;font-size:1rem;}
+.diag-result .btn{margin-top:28px;width:100%;justify-content:center;}
+.diag-restart{margin-top:16px;font-family:'Oswald',sans-serif;font-size:0.74rem;letter-spacing:0.06em;text-transform:uppercase;color:var(--muted);text-align:center;display:block;width:100%;}
+.diag-restart:hover{color:var(--silver);}
+.diag-form{display:none;}
+.diag-form.show{display:block;}
+
+/* ===== COMUNIDADE ===== */
+.comu-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;}
+.comu-card{
+  background:var(--panel);border:1px solid var(--line);border-radius:10px;overflow:hidden;
+  display:flex;flex-direction:column;transition:transform .2s ease, border-color .2s ease;
+}
+.comu-card:hover{transform:translateY(-4px);border-color:var(--red);}
+.comu-media{width:100%;aspect-ratio:9/16;overflow:hidden;background:#000;}
+.comu-media img{width:100%;height:100%;object-fit:cover;display:block;}
+.comu-body{padding:20px 20px 24px;}
+.comu-body h3{font-size:1.05rem;line-height:1.2;}
+.comu-body p{margin-top:10px;font-size:0.86rem;}
+.comu-cta{display:flex;justify-content:center;margin-top:44px;}
+@media(max-width:920px){.comu-grid{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:560px){.comu-grid{grid-template-columns:1fr;}}
+.res-grid{columns:3 260px;column-gap:18px;}
+.res-item{position:relative;border-radius:var(--radius);overflow:hidden;background:var(--panel);border:1px solid var(--line);break-inside:avoid;margin-bottom:18px;}
+.res-item img{width:100%;height:auto;display:block;}
+.res-item .cap{padding:12px 16px;font-family:'Oswald',sans-serif;font-size:0.7rem;text-transform:uppercase;letter-spacing:0.06em;color:var(--muted);}
+@media(max-width:600px){.res-grid{columns:1;}}
+
+.premio-strip{display:flex;gap:18px;margin-top:56px;overflow-x:auto;padding-bottom:8px;}
+.premio-strip img{height:220px;width:auto;border-radius:var(--radius);flex-shrink:0;}
+
+/* ===== CONTATO / FOOTER ===== */
+.contato{background:var(--panel);border-top:1px solid var(--line);}
+.contato-inner{display:grid;grid-template-columns:1.1fr 0.9fr;gap:56px;}
+.contato h2{font-size:clamp(1.9rem,4.2vw,2.8rem);}
+.contato-info{display:flex;flex-direction:column;gap:22px;margin-top:30px;}
+.contato-info a{display:flex;align-items:center;gap:14px;font-family:'Oswald',sans-serif;font-size:0.95rem;letter-spacing:0.03em;color:var(--silver);}
+.contato-info a:hover{color:var(--white);}
+.contato-info .ic{width:38px;height:38px;border:1px solid var(--line);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;}
+.contato-card{background:var(--panel2);border:1px solid var(--line);border-radius:var(--radius);padding:36px;align-self:start;}
+.contato-card p{font-size:0.92rem;}
+.contato-card .btn{width:100%;justify-content:center;margin-top:22px;}
+@media(max-width:860px){.contato-inner{grid-template-columns:1fr;}}
+
+footer{border-top:1px solid var(--line);padding:26px 0;}
+.footer-inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;font-family:'Oswald',sans-serif;font-size:0.74rem;letter-spacing:0.04em;color:var(--muted);text-transform:uppercase;}
+.footer-inner .socials{display:flex;gap:16px;}
+
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease, transform .7s ease;}
+.reveal.in{opacity:1;transform:translateY(0);}
+
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto;}
+  .reveal{transition:none;opacity:1;transform:none;}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav-inner">
+    <div class="brand">
+      <img src="assets/img/logo.jpg" alt="Ezequias Luz">
+      <span>Ezequias Luz</span>
+    </div>
+    <nav class="links">
+      <a href="#sobre" data-i18n="nav1">Sobre</a>
+      <a href="#servicos" data-i18n="nav2">Serviços</a>
+      <a href="#comunidade" data-i18n="navComu">Comunidade</a>
+      <a href="#diferencial" data-i18n="nav3">Diferencial</a>
+      <a href="#diagnostico" data-i18n="nav4">Diagnóstico</a>
+      <a href="#resultados" data-i18n="nav5">Resultados</a>
+      <a href="#contato" data-i18n="nav6">Contato</a>
+    </nav>
+    <div class="head-actions">
+      <div class="lang-toggle">
+        <button id="btn-pt" class="active" onclick="setLang('pt')">PT</button>
+        <button id="btn-es" onclick="setLang('es')">ES</button>
+      </div>
+      <a class="btn btn-primary btn-sm" href="https://wa.me/5591985499350" target="_blank" rel="noopener" data-i18n="navCta">WhatsApp</a>
+    </div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="wrap hero-inner">
+    <div class="hero-tag">
+      <span class="dot"></span>
+      <span class="eyebrow" data-i18n="heroTag">Educador Físico &amp; Personal Trainer</span>
+    </div>
+    <h1 data-i18n="heroTitle">Saúde, performance<br>e <em>resultados</em> de verdade</h1>
+    <p class="lead" data-i18n="heroLead">Consultoria online e treino presencial com acompanhamento real, ajustado ao seu corpo, à sua rotina e ao seu objetivo. Nada de treino genérico.</p>
+    <div class="hero-cta">
+      <a class="btn btn-primary" href="#diagnostico" data-i18n="heroBtn1">Começar meu diagnóstico</a>
+      <a class="btn btn-ghost" href="https://wa.me/5591985499350" target="_blank" rel="noopener" data-i18n="heroBtn2">Falar no WhatsApp</a>
+    </div>
+    <div class="hero-stats">
+      <div>
+        <div class="num">10+</div>
+        <div class="lbl" data-i18n="stat1">Anos de experiência</div>
+      </div>
+      <div>
+        <div class="num">2</div>
+        <div class="lbl" data-i18n="stat2">Formatos de treino</div>
+      </div>
+      <div>
+        <div class="num">PA</div>
+        <div class="lbl" data-i18n="stat3">Presencial e online</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section reveal" id="sobre">
+  <div class="wrap sobre">
+    <div class="sobre-media">
+      <div class="frame"></div>
+      <img src="assets/img/microfone.jpg" alt="Ezequias Luz apresentando em evento">
+    </div>
+    <div>
+      <span class="eyebrow" data-i18n="sobreTag">Sobre mim</span>
+      <h2 data-i18n="sobreTitle">Mais de dez anos formando resultados, não promessas</h2>
+      <p data-i18n="sobreP1">Sou Ezequias Luz, Educador Físico licenciado e bacharel, com mais de dez anos de estrada como Personal Trainer. Já passei por academias, competições e programas sociais, e hoje dedico meu trabalho a duas frentes que amo, a musculação com base em biomecânica e a psicomotricidade aplicada a crianças e adolescentes com TEA no CETEA.</p>
+      <p data-i18n="sobreP2">Atendo alunos presenciais na minha região e também clientes de outras cidades e países através da consultoria online, com alunos no Brasil, na Espanha e em Portugal. Cada plano é construído sobre o seu corpo, sua rotina e seus limites reais.</p>
+      <ul class="sobre-list">
+        <li data-i18n="sobreLi1">Licenciado e bacharel em Educação Física</li>
+        <li data-i18n="sobreLi1b">Pós graduado em Personal Trainer</li>
+        <li data-i18n="sobreLi1c">Pós graduado em Educação Física Escolar e Inclusão</li>
+        <li data-i18n="sobreLi2">Educador Físico na área de psicomotricidade no CETEA, com crianças e adolescentes com TEA</li>
+        <li data-i18n="sobreLi3">Consultoria online para alunos no Brasil, na Espanha e em Portugal</li>
+        <li data-i18n="sobreLi4">Reconhecido com o Prêmio Master Empresarial como destaque da categoria Personal</li>
+        <li data-i18n="sobreLi5">CREF 019068-G/PA</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="section reveal" id="servicos">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow" data-i18n="servTag">Serviços</span>
+      <h2 data-i18n="servTitle">Duas formas de treinar com acompanhamento real</h2>
+    </div>
+    <div class="serv-grid">
+      <div class="serv-card">
+        <span class="tag" data-i18n="servCard1Tag">Consultoria Online</span>
+        <h3 data-i18n="servCard1Title">Treino sob medida, de onde você estiver</h3>
+        <p data-i18n="servCard1P">Planilha de treino individualizada, ajustes periódicos e acompanhamento direto comigo, tudo à distância, com a mesma atenção de um treino presencial.</p>
+        <ul>
+          <li data-i18n="servCard1Li1">Avaliação inicial completa</li>
+          <li data-i18n="servCard1Li2">Ajustes de treino conforme sua evolução</li>
+          <li data-i18n="servCard1Li3">Suporte direto por mensagem</li>
+        </ul>
+      </div>
+      <div class="serv-card">
+        <span class="tag" data-i18n="servCard2Tag">Personal Presencial</span>
+        <h3 data-i18n="servCard2Title">Acompanhamento lado a lado, em cada série</h3>
+        <p data-i18n="servCard2P">Sessões presenciais com correção de execução em tempo real, foco em biomecânica e progressão segura para o seu objetivo.</p>
+        <ul>
+          <li data-i18n="servCard2Li1">Correção técnica em cada exercício</li>
+          <li data-i18n="servCard2Li2">Periodização pensada para o seu corpo</li>
+          <li data-i18n="servCard2Li3">Acompanhamento de evolução contínuo</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section reveal" id="comunidade">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow" data-i18n="comuTag">Reconhecimento e constância</span>
+      <h2 data-i18n="comuTitle">O compromisso diário dos nossos alunos</h2>
+      <p style="margin-top:14px;" data-i18n="comuSub">O compromisso diário dos nossos alunos em movimento e evolução constante.</p>
+    </div>
+    <div class="comu-grid">
+      <div class="comu-card">
+        <div class="comu-media"><img src="assets/img/comunidade-1.jpg" alt="Aluna treinando na consultoria online"></div>
+        <div class="comu-body">
+          <h3 data-i18n="comuCard1Title">Acompanhamento sem fronteiras</h3>
+          <p data-i18n="comuCard1P">Alunos no Brasil e no exterior treinando com método, acompanhamento e orientação de excelência.</p>
+        </div>
+      </div>
+      <div class="comu-card">
+        <div class="comu-media"><img src="assets/img/comunidade-2.jpg" alt="Painel de cardio finalizado por aluna"></div>
+        <div class="comu-body">
+          <h3 data-i18n="comuCard2Title">Constância e disciplina diária</h3>
+          <p data-i18n="comuCard2P">Resultados consolidados com rotinas possíveis, metas reais e dedicação diária de cada aluno.</p>
+        </div>
+      </div>
+      <div class="comu-card">
+        <div class="comu-media"><img src="assets/img/comunidade-3.jpg" alt="Ficha de treino estruturada no aplicativo"></div>
+        <div class="comu-body">
+          <h3 data-i18n="comuCard3Title">Planejamento técnico e exclusivo</h3>
+          <p data-i18n="comuCard3P">Estrutura completa de exercícios baseada nas necessidades individuais e objetivos específicos de cada aluno.</p>
+        </div>
+      </div>
+      <div class="comu-card">
+        <div class="comu-media"><img src="assets/img/comunidade-4.jpg" alt="Aluna registrando evolução no espelho da academia"></div>
+        <div class="comu-body">
+          <h3 data-i18n="comuCard4Title">Confiança e resultados visíveis</h3>
+          <p data-i18n="comuCard4P">A transformação física como consequência natural de um treino bem orientado e executado com segurança.</p>
+        </div>
+      </div>
+    </div>
+    <div class="comu-cta">
+      <a class="btn btn-primary" href="https://wa.me/5591985499350" target="_blank" rel="noopener" data-i18n="comuBtn">Quero fazer parte deste time</a>
+    </div>
+  </div>
+</section>
+
+<section class="section reveal" id="diferencial">
+  <div class="wrap">
+    <div class="diferencial">
+      <img src="assets/img/passarela-1.jpg" alt="Ezequias Luz">
+      <div>
+        <span class="eyebrow" data-i18n="difTag">Diferencial</span>
+        <h2 data-i18n="difTitle">Psicomotricidade e cuidado com o TEA</h2>
+        <p data-i18n="difP" style="margin-top:18px;">Além da musculação, atuo também com psicomotricidade voltada para crianças e adolescentes com Transtorno do Espectro Autista no CETEA. Um olhar sensível sobre o movimento, que carrego também para o modo como conduzo cada aluno da consultoria e do presencial.</p>
+        <p data-i18n="difP2" style="margin-top:14px;">Cada atividade é pensada para respeitar o tempo e as particularidades de cada criança, com foco em coordenação, equilíbrio e desenvolvimento motor de forma leve e acolhedora.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section diag reveal" id="diagnostico">
+  <div class="wrap">
+    <div class="section-head" style="margin-left:auto;margin-right:auto;text-align:center;">
+      <span class="eyebrow" data-i18n="diagTag">Diagnóstico rápido</span>
+      <h2 data-i18n="diagTitle">Descubra o que está travando o seu resultado</h2>
+    </div>
+
+    <div class="diag-card">
+      <div id="diag-quiz">
+        <div class="serie-label">
+          <span class="tag">SÉRIE <b id="serie-atual">01</b> DE 04</span>
+        </div>
+        <div class="bar-track">
+          <div class="bar-seg done" id="bar1"></div>
+          <div class="bar-seg" id="bar2"></div>
+          <div class="bar-seg" id="bar3"></div>
+          <div class="bar-seg" id="bar4"></div>
+        </div>
+        <div class="diag-question" id="diag-q"></div>
+        <div class="diag-options" id="diag-opts"></div>
+      </div>
+
+      <div class="diag-result" id="diag-result">
+        <span class="eyebrow" data-i18n="diagResTag">Seu diagnóstico</span>
+        <h3 data-i18n="diagResTitle" style="font-family:'Anton',sans-serif;font-size:1.5rem;text-transform:none;">O que falta não é esforço, é acompanhamento</h3>
+        <p data-i18n="diagResP">Pelas suas respostas, o problema não é falta de vontade. É treinar sem um plano feito para o seu corpo e sem alguém acompanhando cada ajuste. É exatamente isso que eu resolvo, na consultoria online ou no presencial.</p>
+        <a class="btn btn-primary" id="diag-wa-btn" href="#" target="_blank" rel="noopener" data-i18n="diagResBtn">Falar com Ezequias no WhatsApp</a>
+        <button class="diag-restart" onclick="restartDiag()" data-i18n="diagRestart">Refazer diagnóstico</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section reveal" id="resultados">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow" data-i18n="resTag">Resultados reais</span>
+      <h2 data-i18n="resTitle">Alunos que saíram do genérico e mudaram de fato</h2>
+    </div>
+    <div class="res-grid">
+      <div class="res-item"><img src="assets/img/antes-depois-1.jpg" alt="Aluno antes e depois"><div class="cap" data-i18n="resCap">Antes e depois de aluno</div></div>
+      <div class="res-item"><img src="assets/img/antes-depois-2.jpg" alt="Aluna antes e depois"><div class="cap" data-i18n="resCap">Antes e depois de aluno</div></div>
+      <div class="res-item"><img src="assets/img/antes-depois-3.jpg" alt="Aluno antes e depois"><div class="cap" data-i18n="resCap">Antes e depois de aluno</div></div>
+      <div class="res-item"><img src="assets/img/antes-depois-4.jpg" alt="Aluna antes e depois"><div class="cap" data-i18n="resCap">Antes e depois de aluno</div></div>
+      <div class="res-item"><img src="assets/img/antes-depois-5.jpg" alt="Aluno antes e depois"><div class="cap" data-i18n="resCap">Antes e depois de aluno</div></div>
+    </div>
+    <div class="premio-strip">
+      <img src="assets/img/premio-1.jpg" alt="Prêmio Master Empresarial">
+      <img src="assets/img/premio-2.jpg" alt="Prêmio Master Empresarial">
+      <img src="assets/img/passarela-2.jpg" alt="Ezequias Luz">
+    </div>
+  </div>
+</section>
+
+<section class="contato" id="contato">
+  <div class="wrap section">
+    <div class="contato-inner">
+      <div>
+        <span class="eyebrow" data-i18n="contTag">Vamos treinar juntos</span>
+        <h2 data-i18n="contTitle">Dê o próximo passo no seu treino hoje</h2>
+        <div class="contato-info">
+          <a href="https://wa.me/5591985499350" target="_blank" rel="noopener"><span class="ic">☏</span> WhatsApp: +55 91 98549 9350</a>
+          <a href="https://instagram.com/ezequias.educador_fisico" target="_blank" rel="noopener"><span class="ic">◎</span> @ezequias.educador_fisico</a>
+        </div>
+        <div style="margin-top:32px;display:flex;align-items:center;gap:18px;">
+          <img src="assets/img/qrcode-instagram.png" alt="QR code do Instagram de Ezequias Luz" style="width:112px;height:112px;border-radius:var(--radius);background:#fff;padding:6px;">
+          <p style="font-size:0.86rem;" data-i18n="qrText">Aponte a câmera do celular e siga meu Instagram para acompanhar treinos e resultados de alunos.</p>
+        </div>
+      </div>
+      <div class="contato-card">
+        <span class="eyebrow" data-i18n="contCardTag">Primeiro contato</span>
+        <h3 style="margin-top:10px;" data-i18n="contCardTitle">Fale direto comigo</h3>
+        <p data-i18n="contCardP">Me conte seu objetivo e se prefere treino online ou presencial. Eu respondo pessoalmente e monto o próximo passo com você.</p>
+        <a class="btn btn-primary" href="https://wa.me/5591985499350" target="_blank" rel="noopener" data-i18n="contCardBtn">Chamar no WhatsApp</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap footer-inner">
+    <span data-i18n="footRights">Ezequias Luz, Educador Físico. Todos os direitos reservados.</span>
+    <div class="socials">
+      <a href="https://instagram.com/ezequias.educador_fisico" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://wa.me/5591985499350" target="_blank" rel="noopener">WhatsApp</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ================= i18n ================= */
+const dict = {
+  nav1:{pt:"Sobre",es:"Sobre mí"},
+  nav2:{pt:"Serviços",es:"Servicios"},
+  navComu:{pt:"Comunidade",es:"Comunidad"},
+  nav3:{pt:"Diferencial",es:"Diferencial"},
+  nav4:{pt:"Diagnóstico",es:"Diagnóstico"},
+  nav5:{pt:"Resultados",es:"Resultados"},
+  nav6:{pt:"Contato",es:"Contacto"},
+  navCta:{pt:"WhatsApp",es:"WhatsApp"},
+  heroTag:{pt:"Educador Físico &amp; Personal Trainer",es:"Educador Físico y Entrenador Personal"},
+  heroTitle:{pt:"Saúde, performance<br>e <em>resultados</em> de verdade",es:"Salud, rendimiento<br>y <em>resultados</em> reales"},
+  heroLead:{pt:"Consultoria online e treino presencial com acompanhamento real, ajustado ao seu corpo, à sua rotina e ao seu objetivo. Nada de treino genérico.",es:"Asesoría online y entrenamiento presencial con seguimiento real, ajustado a tu cuerpo, tu rutina y tu objetivo. Nada de rutinas genéricas."},
+  heroBtn1:{pt:"Começar meu diagnóstico",es:"Comenzar mi diagnóstico"},
+  heroBtn2:{pt:"Falar no WhatsApp",es:"Hablar por WhatsApp"},
+  stat1:{pt:"Anos de experiência",es:"Años de experiencia"},
+  stat2:{pt:"Formatos de treino",es:"Formatos de entrenamiento"},
+  stat3:{pt:"Presencial e online",es:"Presencial y online"},
+  sobreTag:{pt:"Sobre mim",es:"Sobre mí"},
+  sobreTitle:{pt:"Mais de dez anos formando resultados, não promessas",es:"Más de diez años formando resultados, no promesas"},
+  sobreP1:{pt:"Sou Ezequias Luz, Educador Físico licenciado e bacharel, com mais de dez anos de estrada como Personal Trainer. Já passei por academias, competições e programas sociais, e hoje dedico meu trabalho a duas frentes que amo, a musculação com base em biomecânica e a psicomotricidade aplicada a crianças e adolescentes com TEA no CETEA.",es:"Soy Ezequias Luz, Educador Físico licenciado y graduado, con más de diez años de trayectoria como Entrenador Personal. Pasé por gimnasios, competiciones y programas sociales, y hoy dedico mi trabajo a dos frentes que amo, la musculación con base en biomecánica y la psicomotricidad aplicada a niños y adolescentes con TEA en el CETEA."},
+  sobreP2:{pt:"Atendo alunos presenciais na minha região e também clientes de outras cidades e países através da consultoria online, com alunos no Brasil, na Espanha e em Portugal. Cada plano é construído sobre o seu corpo, sua rotina e seus limites reais.",es:"Atiendo alumnos presenciales en mi región y también clientes de otras ciudades y países a través de la asesoría online, con alumnos en Brasil, España y Portugal. Cada plan se construye sobre tu cuerpo, tu rutina y tus límites reales."},
+  sobreLi1:{pt:"Licenciado e bacharel em Educação Física",es:"Licenciado y graduado en Educación Física"},
+  sobreLi1b:{pt:"Pós graduado em Personal Trainer",es:"Posgraduado en Entrenamiento Personal"},
+  sobreLi1c:{pt:"Pós graduado em Educação Física Escolar e Inclusão",es:"Posgraduado en Educación Física Escolar e Inclusión"},
+  sobreLi2:{pt:"Educador Físico na área de psicomotricidade no CETEA, com crianças e adolescentes com TEA",es:"Educador Físico en el área de psicomotricidad en el CETEA, con niños y adolescentes con TEA"},
+  sobreLi3:{pt:"Consultoria online para alunos no Brasil, na Espanha e em Portugal",es:"Asesoría online para alumnos en Brasil, España y Portugal"},
+  sobreLi4:{pt:"Reconhecido com o Prêmio Master Empresarial como destaque da categoria Personal",es:"Reconocido con el Premio Master Empresarial como destaque de la categoría Personal"},
+  sobreLi5:{pt:"CREF 019068-G/PA",es:"CREF 019068-G/PA"},
+  servTag:{pt:"Serviços",es:"Servicios"},
+  servTitle:{pt:"Duas formas de treinar com acompanhamento real",es:"Dos formas de entrenar con seguimiento real"},
+  servCard1Tag:{pt:"Consultoria Online",es:"Asesoría Online"},
+  servCard1Title:{pt:"Treino sob medida, de onde você estiver",es:"Entrenamiento a medida, desde donde estés"},
+  servCard1P:{pt:"Planilha de treino individualizada, ajustes periódicos e acompanhamento direto comigo, tudo à distância, com a mesma atenção de um treino presencial.",es:"Plan de entrenamiento individualizado, ajustes periódicos y seguimiento directo conmigo, todo a distancia, con la misma atención de un entrenamiento presencial."},
+  servCard1Li1:{pt:"Avaliação inicial completa",es:"Evaluación inicial completa"},
+  servCard1Li2:{pt:"Ajustes de treino conforme sua evolução",es:"Ajustes de entrenamiento según tu evolución"},
+  servCard1Li3:{pt:"Suporte direto por mensagem",es:"Soporte directo por mensaje"},
+  servCard2Tag:{pt:"Personal Presencial",es:"Entrenamiento Presencial"},
+  servCard2Title:{pt:"Acompanhamento lado a lado, em cada série",es:"Seguimiento lado a lado, en cada serie"},
+  servCard2P:{pt:"Sessões presenciais com correção de execução em tempo real, foco em biomecânica e progressão segura para o seu objetivo.",es:"Sesiones presenciales con corrección de ejecución en tiempo real, enfoque en biomecánica y progresión segura para tu objetivo."},
+  servCard2Li1:{pt:"Correção técnica em cada exercício",es:"Corrección técnica en cada ejercicio"},
+  servCard2Li2:{pt:"Periodização pensada para o seu corpo",es:"Periodización pensada para tu cuerpo"},
+  servCard2Li3:{pt:"Acompanhamento de evolução contínuo",es:"Seguimiento de evolución continuo"},
+  difTag:{pt:"Diferencial",es:"Diferencial"},
+  difTitle:{pt:"Psicomotricidade e cuidado com o TEA",es:"Psicomotricidad y cuidado con el TEA"},
+  difP:{pt:"Além da musculação, atuo também com psicomotricidade voltada para crianças e adolescentes com Transtorno do Espectro Autista no CETEA. Um olhar sensível sobre o movimento, que carrego também para o modo como conduzo cada aluno da consultoria e do presencial.",es:"Además de la musculación, trabajo también con psicomotricidad orientada a niños y adolescentes con Trastorno del Espectro Autista en el CETEA. Una mirada sensible sobre el movimiento, que también aplico en cada alumno de la asesoría y del presencial."},
+  difP2:{pt:"Cada atividade é pensada para respeitar o tempo e as particularidades de cada criança, com foco em coordenação, equilíbrio e desenvolvimento motor de forma leve e acolhedora.",es:"Cada actividad está pensada para respetar el tiempo y las particularidades de cada niño, con enfoque en coordinación, equilibrio y desarrollo motor de forma ligera y acogedora."},
+  diagTag:{pt:"Diagnóstico rápido",es:"Diagnóstico rápido"},
+  diagTitle:{pt:"Descubra o que está travando o seu resultado",es:"Descubre qué está frenando tu resultado"},
+  diagResTag:{pt:"Seu diagnóstico",es:"Tu diagnóstico"},
+  diagResTitle:{pt:"O que falta não é esforço, é acompanhamento",es:"Lo que falta no es esfuerzo, es seguimiento"},
+  diagResP:{pt:"Pelas suas respostas, o problema não é falta de vontade. É treinar sem um plano feito para o seu corpo e sem alguém acompanhando cada ajuste. É exatamente isso que eu resolvo, na consultoria online ou no presencial.",es:"Según tus respuestas, el problema no es falta de ganas. Es entrenar sin un plan hecho para tu cuerpo y sin alguien dando seguimiento a cada ajuste. Eso es exactamente lo que yo resuelvo, en la asesoría online o en el presencial."},
+  diagResBtn:{pt:"Falar com Ezequias no WhatsApp",es:"Hablar con Ezequias por WhatsApp"},
+  diagRestart:{pt:"Refazer diagnóstico",es:"Rehacer diagnóstico"},
+  resTag:{pt:"Resultados reais",es:"Resultados reales"},
+  resTitle:{pt:"Alunos que saíram do genérico e mudaram de fato",es:"Alumnos que dejaron lo genérico y cambiaron de verdad"},
+  resCap:{pt:"Antes e depois de aluno",es:"Antes y después de alumno"},
+  comuTag:{pt:"Reconhecimento e constância",es:"Reconocimiento y constancia"},
+  comuTitle:{pt:"O compromisso diário dos nossos alunos",es:"El compromiso diario de nuestros alumnos"},
+  comuSub:{pt:"O compromisso diário dos nossos alunos em movimento e evolução constante.",es:"El compromiso diario de nuestros alumnos en movimiento y evolución constante."},
+  comuCard1Title:{pt:"Acompanhamento sem fronteiras",es:"Seguimiento sin fronteras"},
+  comuCard1P:{pt:"Alunos no Brasil e no exterior treinando com método, acompanhamento e orientação de excelência.",es:"Alumnos en Brasil y en el exterior entrenando con método, seguimiento y orientación de excelencia."},
+  comuCard2Title:{pt:"Constância e disciplina diária",es:"Constancia y disciplina diaria"},
+  comuCard2P:{pt:"Resultados consolidados com rotinas possíveis, metas reais e dedicação diária de cada aluno.",es:"Resultados consolidados con rutinas posibles, metas reales y dedicación diaria de cada alumno."},
+  comuCard3Title:{pt:"Planejamento técnico e exclusivo",es:"Planificación técnica y exclusiva"},
+  comuCard3P:{pt:"Estrutura completa de exercícios baseada nas necessidades individuais e objetivos específicos de cada aluno.",es:"Estructura completa de ejercicios basada en las necesidades individuales y objetivos específicos de cada alumno."},
+  comuCard4Title:{pt:"Confiança e resultados visíveis",es:"Confianza y resultados visibles"},
+  comuCard4P:{pt:"A transformação física como consequência natural de um treino bem orientado e executado com segurança.",es:"La transformación física como consecuencia natural de un entrenamiento bien orientado y ejecutado con seguridad."},
+  comuBtn:{pt:"Quero fazer parte deste time",es:"Quiero ser parte de este equipo"},
+  contTag:{pt:"Vamos treinar juntos",es:"Entrenemos juntos"},
+  contTitle:{pt:"Dê o próximo passo no seu treino hoje",es:"Da el próximo paso en tu entrenamiento hoy"},
+  contCardTag:{pt:"Primeiro contato",es:"Primer contacto"},
+  contCardTitle:{pt:"Fale direto comigo",es:"Habla directo conmigo"},
+  contCardP:{pt:"Me conte seu objetivo e se prefere treino online ou presencial. Eu respondo pessoalmente e monto o próximo passo com você.",es:"Cuéntame tu objetivo y si prefieres entrenamiento online o presencial. Yo respondo personalmente y armamos el próximo paso juntos."},
+  contCardBtn:{pt:"Chamar no WhatsApp",es:"Escribir por WhatsApp"},
+  qrText:{pt:"Aponte a câmera do celular e siga meu Instagram para acompanhar treinos e resultados de alunos.",es:"Apunta la cámara del celular y sigue mi Instagram para ver entrenamientos y resultados de alumnos."},
+  footRights:{pt:"Ezequias Luz, Educador Físico. Todos os direitos reservados.",es:"Ezequias Luz, Educador Físico. Todos los derechos reservados."}
+};
+
+let currentLang = 'pt';
+function setLang(lang){
+  currentLang = lang;
+  document.getElementById('btn-pt').classList.toggle('active', lang==='pt');
+  document.getElementById('btn-es').classList.toggle('active', lang==='es');
+  document.querySelectorAll('[data-i18n]').forEach(el=>{
+    const key = el.getAttribute('data-i18n');
+    if(dict[key]) el.innerHTML = dict[key][lang];
+  });
+  renderQuestion();
+}
+
+/* ================= Diagnóstico (quiz) ================= */
+const questions = {
+  pt:[
+    {q:"Você já tentou treinar sozinho e sentiu que não chegou a lugar nenhum?", opts:["Sim, várias vezes","Não, essa é minha primeira tentativa"]},
+    {q:"Já recebeu treinos genéricos que não respeitavam o seu corpo?", opts:["Sim, e não vi resultado","Ainda não tive essa experiência"]},
+    {q:"Sente falta de alguém acompanhando e ajustando seu treino de perto?", opts:["Sim, sinto muita falta disso","Tenho algum acompanhamento hoje"]},
+    {q:"Está pronto para ter um plano feito sob medida com acompanhamento real?", opts:["Sim, quero começar agora","Ainda estou avaliando minhas opções"]}
+  ],
+  es:[
+    {q:"¿Ya intentaste entrenar solo y sentiste que no llegabas a ningún lado?", opts:["Sí, varias veces","No, esta es mi primera vez"]},
+    {q:"¿Ya recibiste entrenamientos genéricos que no respetaban tu cuerpo?", opts:["Sí, y no vi resultados","Todavía no tuve esa experiencia"]},
+    {q:"¿Sientes que falta alguien dando seguimiento y ajustando tu entrenamiento de cerca?", opts:["Sí, siento mucha falta de eso","Hoy tengo algún seguimiento"]},
+    {q:"¿Estás listo para tener un plan hecho a medida con seguimiento real?", opts:["Sí, quiero empezar ahora","Todavía estoy evaluando mis opciones"]}
+  ]
+};
+
+let step = 0;
+const answers = [];
+
+function renderQuestion(){
+  const qset = questions[currentLang];
+  document.getElementById('serie-atual').textContent = String(step+1).padStart(2,'0');
+  for(let i=1;i<=4;i++){
+    document.getElementById('bar'+i).classList.toggle('done', i<=step+1);
+  }
+  document.getElementById('diag-q').textContent = qset[step].q;
+  const optsWrap = document.getElementById('diag-opts');
+  optsWrap.innerHTML = '';
+  qset[step].opts.forEach((opt, idx)=>{
+    const b = document.createElement('button');
+    b.className = 'diag-opt';
+    b.textContent = opt;
+    b.onclick = ()=>selectOpt(idx);
+    optsWrap.appendChild(b);
+  });
+}
+
+function selectOpt(idx){
+  answers[step] = idx;
+  step++;
+  if(step >= 4){
+    showResult();
+  } else {
+    renderQuestion();
+  }
+}
+
+function showResult(){
+  document.getElementById('diag-quiz').style.display = 'none';
+  document.getElementById('diag-result').classList.add('show');
+  const painCount = answers.slice(0,3).filter(a=>a===0).length;
+  const readyMsg = currentLang==='pt'
+    ? (painCount>=2
+        ? "Olá Ezequias, fiz o diagnóstico no site e percebi que preciso de acompanhamento profissional real. Quero saber mais sobre a consultoria online ou o presencial."
+        : "Olá Ezequias, fiz o diagnóstico no site e quero entender melhor como funciona o seu acompanhamento.")
+    : (painCount>=2
+        ? "Hola Ezequias, hice el diagnóstico en el sitio y me di cuenta de que necesito seguimiento profesional real. Quiero saber más sobre la asesoría online o el presencial."
+        : "Hola Ezequias, hice el diagnóstico en el sitio y quiero entender mejor cómo funciona tu seguimiento.");
+  document.getElementById('diag-wa-btn').href = "https://wa.me/5591985499350?text=" + encodeURIComponent(readyMsg);
+}
+
+function restartDiag(){
+  step = 0;
+  answers.length = 0;
+  document.getElementById('diag-quiz').style.display = 'block';
+  document.getElementById('diag-result').classList.remove('show');
+  renderQuestion();
+}
+
+renderQuestion();
+
+/* ================= Scroll reveal ================= */
+const io = new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+},{threshold:0.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
