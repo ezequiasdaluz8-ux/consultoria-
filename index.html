@@ -97,10 +97,8 @@ nav.links a:hover{color:var(--white);}
 .btn-ghost:hover{border-color:var(--silver);}
 .btn-sm{padding:10px 18px;font-size:0.74rem;}
 
-/* Esconde o menu hamburguer antigo */
 .menu-toggle { display: none !important; }
 
-/* ===== ADAPTAÇÃO RESPONSIVA DO HEADER NO MOBILE (CORRIGIDA) ===== */
 @media(max-width:920px){
   header {
     padding: 0;
@@ -115,7 +113,6 @@ nav.links a:hover{color:var(--white);}
     gap: 8px 0 !important;
   }
 
-  /* Linha 1: Marca à esquerda, botões à direita */
   .brand {
     order: 1;
     flex: 0 0 auto;
@@ -143,7 +140,6 @@ nav.links a:hover{color:var(--white);}
     align-items: center;
   }
 
-  /* Linha 2: Esteira de Links preenchendo a largura total */
   nav.links {
     order: 3;
     flex: 0 0 100% !important;
@@ -172,7 +168,6 @@ nav.links a:hover{color:var(--white);}
     flex-shrink: 0 !important;
   }
 
-  /* Ajuste de espaçamento para o topo do site não sumir sob o header */
   .hero {
     padding-top: 130px !important;
   }
@@ -582,8 +577,8 @@ footer{border-top:1px solid var(--line);padding:26px 0;}
     <div class="video-diferencial reveal">
       <div class="video-text">
         <span class="eyebrow" data-i18n="videoTag">Na prática</span>
-        <h3 data-i18n="videoTitle" style="margin-top:8px;">3 atividades para estimular a coordenação motora</h3>
-        <p data-i18n="videoP" style="margin-top:12px;">Separei 3 atividades simples de psicomotricidade, feitas com o que você já tem em casa, para estimular coordenação motora, equilíbrio e atenção em crianças e adolescentes com TEA. Um conteúdo prático para famílias aplicarem no dia a dia, sem precisar de material especial.</p>
+        <h3 data-i18n="videoTitle" style="margin-top:8px;">Atividades práticas de psicomotricidade</h3>
+        <p data-i18n="videoP" style="margin-top:12px;">Exercícios e atividades desenvolvidas para estimular coordenação motora, equilíbrio, noção espacial e foco. Conteúdos práticos preparados para aplicação no dia a dia, respeitando o ritmo e as necessidades individuais de desenvolvimento.</p>
         <div style="margin-top: 24px;">
           <a class="btn btn-primary btn-sm" href="https://www.instagram.com/reel/Da0zNvzpKwv/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" rel="noopener">
             Assistir Vídeo no Instagram ↗
@@ -594,6 +589,12 @@ footer{border-top:1px solid var(--line);padding:26px 0;}
         <div class="video-card">
           <video controls preload="metadata" playsinline poster="assets/img/passarela-1.jpg">
             <source src="assets/atividades-coordenacao-tea.mp4" type="video/mp4">
+            Seu navegador não suporta a reprodução de vídeo HTML5.
+          </video>
+        </div>
+        <div class="video-card">
+          <video controls preload="metadata" playsinline poster="assets/img/passarela-1.jpg">
+            <source src="assets/nova-atividade.mp4" type="video/mp4">
             Seu navegador não suporta a reprodução de vídeo HTML5.
           </video>
         </div>
@@ -793,8 +794,8 @@ const dict = {
   difP:{pt:"Além da musculação, atuo também com psicomotricidade voltada para crianças e adolescentes com Transtorno do Espectro Autista no CETEA. Um olhar sensível sobre o movimento, que carrego também para o modo como conduzo cada aluno da consultoria e do presencial.",es:"Además de la musculación, trabajo también con psicomotricidad orientada a niños y adolescentes con Trastorno del Espectro Autista en el CETEA. Una mirada sensible sobre el movimiento, que también aplico en cada alumno de la asesoría y del presencial."},
   difP2: {pt: "Cada atividade é pensada para respeitar o tempo e as particularidades de cada criança, com foco em coordenação, equilíbrio e desenvolvimento motor de forma leve e acolhedora.", es: "Cada actividad está pensada para respetar el tiempo y las particularidades de cada niño, con foco en coordinación, equilibrio y desarrollo motor de forma leve y acogedora."},
   videoTag:{pt:"Na prática",es:"En la práctica"},
-  videoTitle:{pt:"3 atividades para estimular a coordenação motora",es:"3 actividades para estimular la coordinación motora"},
-  videoP:{pt:"Separei 3 atividades simples de psicomotricidade, feitas com o que você já tem em casa, para estimular coordenação motora, equilíbrio e atenção em crianças e adolescentes com TEA. Um conteúdo prático para famílias aplicarem no dia a dia, sem precisar de material especial.",es:"Preparé 3 actividades simples de psicomotricidad, hechas con lo que ya tienes en casa, para estimular coordinación motora, equilibrio y atención en niños y adolescentes con TEA. Un contenido práctico para que las familias lo apliquen en el día a día, sin necesitar material especial."},
+  videoTitle:{pt:"Atividades práticas de psicomotricidade",es:"Actividades prácticas de psicomotricidad"},
+  videoP:{pt:"Exercícios e atividades desenvolvidas para estimular coordenação motora, equilíbrio, noção espacial e foco. Conteúdos práticos preparados para aplicação no dia a dia, respeitando o ritmo e as necessidades individuais de desenvolvimento.",es:"Ejercicios y actividades desarrolladas para estimular la coordinación motora, el equilibrio, la noción espacial y el enfoque. Contenidos prácticos preparados para la aplicación diaria, respetando el ritmo y las necesidades individuales de desarrollo."},
   navPac:{pt:"Pacotes",es:"Paquetes"},
   pacTag:{pt:"Investimento",es:"Inversión"},
   pacTitle:{pt:"Escolha o formato que se encaixa na sua rotina",es:"Elige el formato que se ajusta a tu rutina"},
