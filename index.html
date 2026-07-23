@@ -60,7 +60,7 @@ p{color:var(--silver);}
 /* ===== HEADER ===== */
 header{
   position:fixed;top:0;left:0;right:0;z-index:100;
-  background:rgba(11,11,13,0.86);
+  background:rgba(11,11,13,0.92);
   backdrop-filter:blur(10px);
   border-bottom:1px solid var(--line);
 }
@@ -71,15 +71,20 @@ header{
 .brand{display:flex;align-items:center;gap:12px;}
 .brand img{width:44px;height:44px;border-radius:50%;object-fit:cover;}
 .brand span{font-family:'Anton',sans-serif;font-size:1.05rem;letter-spacing:0.03em;text-transform:uppercase;}
-nav.links{display:flex;gap:28px;font-family:'Oswald',sans-serif;font-size:0.82rem;text-transform:uppercase;letter-spacing:0.08em;font-weight:500;}
+
+nav.links{
+  display:flex;gap:28px;font-family:'Oswald',sans-serif;font-size:0.82rem;text-transform:uppercase;letter-spacing:0.08em;font-weight:500;
+}
 nav.links a{color:var(--silver);transition:color .2s;white-space:nowrap;}
 nav.links a:hover{color:var(--white);}
+
 .head-actions{display:flex;align-items:center;gap:14px;}
 .lang-toggle{
   display:flex;border:1px solid var(--line);border-radius:20px;overflow:hidden;font-family:'Oswald',sans-serif;font-size:0.72rem;letter-spacing:0.06em;
 }
 .lang-toggle button{padding:6px 13px;color:var(--muted);}
 .lang-toggle button.active{background:var(--red);color:var(--white);}
+
 .btn{
   display:inline-flex;align-items:center;gap:10px;
   padding:13px 24px;font-family:'Oswald',sans-serif;font-weight:600;
@@ -91,25 +96,67 @@ nav.links a:hover{color:var(--white);}
 .btn-ghost{border:1px solid var(--line);color:var(--white);}
 .btn-ghost:hover{border-color:var(--silver);}
 .btn-sm{padding:10px 18px;font-size:0.74rem;}
-.menu-toggle{display:none;width:34px;height:26px;position:relative;flex-shrink:0;}
-.menu-toggle span{position:absolute;left:0;right:0;height:2px;background:var(--white);transition:transform .2s ease, opacity .2s ease;}
-.menu-toggle span:nth-child(1){top:0;}
-.menu-toggle span:nth-child(2){top:12px;}
-.menu-toggle span:nth-child(3){top:24px;}
-.menu-toggle.open span:nth-child(1){transform:translateY(12px) rotate(45deg);}
-.menu-toggle.open span:nth-child(2){opacity:0;}
-.menu-toggle.open span:nth-child(3){transform:translateY(-12px) rotate(-45deg);}
+
+/* Esconde o menu hamburguer antigo */
+.menu-toggle { display: none !important; }
+
+/* ===== ADAPTAÇÃO RESPONSIVA DO HEADER NO MOBILE ===== */
 @media(max-width:920px){
-  .menu-toggle{display:block;order:3;}
-  nav.links{
-    display:none;position:fixed;top:73px;left:0;right:0;bottom:0;width:100%;z-index:9999;
-    background:var(--black);flex-direction:column;gap:0;padding:8px 24px 24px;
-    overflow-y:auto;-webkit-overflow-scrolling:touch;
+  body {
+    padding-top: 10px; /* Garante margem para a nova altura do topo fixo */
   }
-  nav.links.open{display:flex !important;}
-  nav.links a{padding:16px 0;border-bottom:1px solid var(--line);font-size:0.95rem;}
-  .head-actions{order:2;margin-left:auto;}
-  body.menu-open{overflow:hidden;}
+
+  .nav-inner {
+    flex-direction: column !important;
+    padding: 10px 16px 6px 16px !important;
+    gap: 8px !important;
+  }
+
+  /* Linha 1: Marca de um lado, Ações (Idioma + WhatsApp) do outro */
+  .brand {
+    order: 1;
+  }
+  
+  .head-actions {
+    order: 2;
+    margin-left: auto;
+    gap: 8px;
+  }
+
+  .btn-sm {
+    padding: 6px 12px !important;
+    font-size: 0.7rem !important;
+  }
+
+  /* Linha 2: Esteira rolável para os Links de navegação */
+  nav.links {
+    order: 3;
+    display: flex !important;
+    position: static !important;
+    width: 100% !important;
+    flex-direction: row !important;
+    overflow-x: auto !important;
+    white-space: nowrap !important;
+    padding: 8px 0 4px 0 !important;
+    gap: 16px !important;
+    border-top: 1px solid var(--line);
+    margin-top: 2px;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Remove a barra visual de rolagem */
+  nav.links::-webkit-scrollbar {
+    display: none !important;
+    width: 0 !important;
+    height: 0 !important;
+  }
+
+  nav.links a {
+    padding: 2px 4px !important;
+    border: none !important;
+    font-size: 0.75rem !important;
+    flex-shrink: 0 !important;
+  }
 }
 
 /* ===== HERO ===== */
@@ -195,7 +242,7 @@ nav.links a:hover{color:var(--white);}
 .video-card video{width:100%;height:100%;object-fit:cover;display:block;}
 @media(max-width:860px){.video-diferencial{padding:28px;flex-direction:column;}.video-text{flex:1 1 auto;max-width:none;}.video-grid{grid-template-columns:repeat(auto-fill,minmax(160px,1fr));width:100%;}}
 
-/* ===== DIAGNOSTICO (signature quiz) ===== */
+/* ===== DIAGNOSTICO ===== */
 .diag{background:linear-gradient(180deg,var(--black),#111113 60%);}
 .diag-card{
   max-width:640px;margin:0 auto;background:var(--panel);
@@ -206,7 +253,7 @@ nav.links a:hover{color:var(--white);}
   content:"";position:absolute;top:0;left:0;right:0;height:3px;
   background:linear-gradient(90deg,var(--red-deep),var(--red));
 }
-.serie-label{display:flex;justify-between:space-between;align-items:center;margin-bottom:24px;}
+.serie-label{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;}
 .serie-label .tag{font-family:'Oswald',sans-serif;font-size:0.74rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);}
 .serie-label .tag b{color:var(--red);}
 .bar-track{display:flex;gap:6px;margin-bottom:34px;}
@@ -226,8 +273,6 @@ nav.links a:hover{color:var(--white);}
 .diag-result .btn{margin-top:28px;width:100%;justify-content:center;}
 .diag-restart{margin-top:16px;font-family:'Oswald',sans-serif;font-size:0.74rem;letter-spacing:0.06em;text-transform:uppercase;color:var(--muted);text-align:center;display:block;width:100%;}
 .diag-restart:hover{color:var(--silver);}
-.diag-form{display:none;}
-.diag-form.show{display:block;}
 
 /* ===== COMUNIDADE ===== */
 .comu-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;}
@@ -372,24 +417,8 @@ footer{border-top:1px solid var(--line);padding:26px 0;}
       </div>
       <a class="btn btn-primary btn-sm" href="https://wa.me/5591985499350?text=Ol%C3%A1%21%20Vim%20pelo%20site%20e%20gostaria%20de%20saber%20mais%20sobre%20a%20consultoria." target="_blank" rel="noopener" data-i18n="navCta">WhatsApp</a>
     </div>
-    <button class="menu-toggle" id="menu-toggle" onclick="toggleMenu()" aria-label="Abrir menu"><span></span><span></span><span></span></button>
   </div>
 </header>
-
-<script>
-function toggleMenu(){
-  document.querySelector('nav.links').classList.toggle('open');
-  document.getElementById('menu-toggle').classList.toggle('open');
-  document.body.classList.toggle('menu-open');
-}
-document.querySelectorAll('nav.links a').forEach(a=>{
-  a.addEventListener('click', ()=>{
-    document.querySelector('nav.links').classList.remove('open');
-    document.getElementById('menu-toggle').classList.remove('open');
-    document.body.classList.remove('menu-open');
-  });
-});
-</script>
 
 <section class="hero">
   <div class="hero-bg"></div>
@@ -429,7 +458,7 @@ document.querySelectorAll('nav.links a').forEach(a=>{
     </div>
     <div>
       <span class="eyebrow" data-i18n="sobreTag">Sobre mim</span>
-      <h2 data-i18n="sobreTitle">Mais de dez anos forming resultados, não promessas</h2>
+      <h2 data-i18n="sobreTitle">Mais de dez anos formando resultados, não promessas</h2>
       <p data-i18n="sobreP1">Sou Ezequias Luz, Educador Físico licenciado e bacharel, com mais de dez anos de estrada como Personal Trainer. Já passei por academias, competições e programas sociais, e hoje dedico meu trabalho a duas frentes que amo, a musculação com base em biomecânica e a psicomotricidade aplicada a crianças e adolescentes com TEA no CETEA.</p>
       <p data-i18n="sobreP2">Atendo alunos presenciais na minha região e também clientes de outras cidades e países através da consultoria online, com alunos no Brasil, na Espanha e em Portugal. Cada plano é construído sobre o seu corpo, sua rotina e seus limites reais.</p>
       <ul class="sobre-list">
