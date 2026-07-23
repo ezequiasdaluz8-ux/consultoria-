@@ -91,7 +91,25 @@ nav.links a:hover{color:var(--white);}
 .btn-ghost{border:1px solid var(--line);color:var(--white);}
 .btn-ghost:hover{border-color:var(--silver);}
 .btn-sm{padding:10px 18px;font-size:0.74rem;}
-@media(max-width:920px){nav.links{display:none;}}
+.menu-toggle{display:none;width:34px;height:26px;position:relative;flex-shrink:0;}
+.menu-toggle span{position:absolute;left:0;right:0;height:2px;background:var(--white);transition:transform .2s ease, opacity .2s ease;}
+.menu-toggle span:nth-child(1){top:0;}
+.menu-toggle span:nth-child(2){top:12px;}
+.menu-toggle span:nth-child(3){top:24px;}
+.menu-toggle.open span:nth-child(1){transform:translateY(12px) rotate(45deg);}
+.menu-toggle.open span:nth-child(2){opacity:0;}
+.menu-toggle.open span:nth-child(3){transform:translateY(-12px) rotate(-45deg);}
+@media(max-width:920px){
+  .menu-toggle{display:block;order:3;}
+  nav.links{
+    display:none;position:fixed;top:73px;left:0;right:0;bottom:0;z-index:99;
+    background:var(--black);flex-direction:column;gap:0;padding:8px 24px 24px;
+    overflow-y:auto;
+  }
+  nav.links.open{display:flex;}
+  nav.links a{padding:16px 0;border-bottom:1px solid var(--line);font-size:0.95rem;}
+  .head-actions{order:2;margin-left:auto;}
+}
 
 /* ===== HERO ===== */
 .hero{
@@ -143,6 +161,13 @@ nav.links a:hover{color:var(--white);}
 .serv-card ul li{list-style:none;font-size:0.88rem;color:var(--muted);padding-left:16px;position:relative;}
 .serv-card ul li::before{content:"›";position:absolute;left:0;color:var(--red);}
 @media(max-width:760px){.serv-grid{grid-template-columns:1fr;}}
+
+/* ===== PACOTES ===== */
+.pac-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:2px;background:var(--line);border:1px solid var(--line);}
+.pac-grid .serv-card{padding:32px 24px;}
+.pac-grid .serv-card p{font-size:0.86rem;margin-top:10px;}
+@media(max-width:920px){.pac-grid{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:520px){.pac-grid{grid-template-columns:1fr;}}
 
 /* ===== DIFERENCIAL TEA ===== */
 .diferencial{
@@ -227,6 +252,17 @@ nav.links a:hover{color:var(--white);}
 .premio-strip{display:flex;gap:18px;margin-top:56px;overflow-x:auto;padding-bottom:8px;}
 .premio-strip img{height:220px;width:auto;border-radius:var(--radius);flex-shrink:0;}
 
+/* ===== DEPOIMENTOS ===== */
+.dep-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--line);border:1px solid var(--line);}
+.dep-card{background:var(--panel);padding:34px 30px;display:flex;flex-direction:column;gap:16px;}
+.dep-avatar{width:48px;height:48px;border-radius:50%;background:var(--red);color:var(--white);display:flex;align-items:center;justify-content:center;font-family:'Anton',sans-serif;font-size:1.2rem;flex-shrink:0;}
+.dep-top{display:flex;align-items:center;gap:14px;}
+.dep-name{font-family:'Oswald',sans-serif;font-size:0.92rem;font-weight:600;}
+.dep-loc{font-size:0.76rem;color:var(--muted);}
+.dep-quote{font-size:0.94rem;color:var(--silver);}
+@media(max-width:920px){.dep-grid{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:600px){.dep-grid{grid-template-columns:1fr;}}
+
 /* ===== CONTATO / FOOTER ===== */
 .contato{background:var(--panel);border-top:1px solid var(--line);}
 .contato-inner{display:grid;grid-template-columns:1.1fr 0.9fr;gap:56px;}
@@ -266,6 +302,7 @@ footer{border-top:1px solid var(--line);padding:26px 0;}
       <a href="#servicos" data-i18n="nav2">Serviços</a>
       <a href="#comunidade" data-i18n="navComu">Comunidade</a>
       <a href="#diferencial" data-i18n="nav3">Diferencial</a>
+      <a href="#pacotes" data-i18n="navPac">Pacotes</a>
       <a href="#diagnostico" data-i18n="nav4">Diagnóstico</a>
       <a href="#resultados" data-i18n="nav5">Resultados</a>
       <a href="#contato" data-i18n="nav6">Contato</a>
@@ -277,8 +314,22 @@ footer{border-top:1px solid var(--line);padding:26px 0;}
       </div>
       <a class="btn btn-primary btn-sm" href="https://wa.me/5591985499350" target="_blank" rel="noopener" data-i18n="navCta">WhatsApp</a>
     </div>
+    <button class="menu-toggle" id="menu-toggle" onclick="toggleMenu()" aria-label="Abrir menu"><span></span><span></span><span></span></button>
   </div>
 </header>
+
+<script>
+function toggleMenu(){
+  document.querySelector('nav.links').classList.toggle('open');
+  document.getElementById('menu-toggle').classList.toggle('open');
+}
+document.querySelectorAll('nav.links a').forEach(a=>{
+  a.addEventListener('click', ()=>{
+    document.querySelector('nav.links').classList.remove('open');
+    document.getElementById('menu-toggle').classList.remove('open');
+  });
+});
+</script>
 
 <section class="hero">
   <div class="hero-bg"></div>
@@ -439,6 +490,47 @@ footer{border-top:1px solid var(--line);padding:26px 0;}
   </div>
 </section>
 
+<section class="section reveal" id="pacotes">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow" data-i18n="pacTag">Investimento</span>
+      <h2 data-i18n="pacTitle">Escolha o formato que se encaixa na sua rotina</h2>
+      <p data-i18n="pacSub" style="margin-top:14px;">Quanto maior o compromisso, maior a economia — e mais consistente é o resultado.</p>
+    </div>
+    <div class="pac-grid">
+      <div class="serv-card">
+        <span class="tag" data-i18n="pac1Tag">Avulsa</span>
+        <h3 data-i18n="pac1Title">Hora aula</h3>
+        <p data-i18n="pac1P">Ideal para testar o método</p>
+      </div>
+      <div class="serv-card">
+        <span class="tag" data-i18n="pac2Tag">Semanal</span>
+        <h3 data-i18n="pac2Title">Pacote semanal</h3>
+        <p data-i18n="pac2P">Pequeno desconto sobre o valor avulso</p>
+      </div>
+      <div class="serv-card">
+        <span class="tag" data-i18n="pac3Tag">Mais escolhido</span>
+        <h3 data-i18n="pac3Title">Pacote mensal</h3>
+        <p data-i18n="pac3P">Desconto maior, acompanhamento contínuo</p>
+      </div>
+      <div class="serv-card">
+        <span class="tag" data-i18n="pac4Tag">Trimestral</span>
+        <h3 data-i18n="pac4Title">Pacote trimestral</h3>
+        <p data-i18n="pac4P">Desconto adicional sobre o mensal</p>
+      </div>
+      <div class="serv-card">
+        <span class="tag" data-i18n="pac5Tag">Melhor custo-benefício</span>
+        <h3 data-i18n="pac5Title">Pacote anual</h3>
+        <p data-i18n="pac5P">Maior desconto de todos os planos</p>
+      </div>
+    </div>
+    <p style="text-align:center;font-size:0.84rem;margin-top:18px;" data-i18n="payText">Pagamento facilitado: alunos no Brasil pagam via PIX. Alunos em Portugal, Espanha e demais países pagam via transferência internacional (IBAN), em euros.</p>
+    <div class="comu-cta">
+      <a class="btn btn-primary" href="https://wa.me/5591985499350" target="_blank" rel="noopener" data-i18n="pacBtn">Consultar valores no WhatsApp</a>
+    </div>
+  </div>
+</section>
+
 <section class="section diag reveal" id="diagnostico">
   <div class="wrap">
     <div class="section-head" style="margin-left:auto;margin-right:auto;text-align:center;">
@@ -489,6 +581,18 @@ footer{border-top:1px solid var(--line);padding:26px 0;}
       <img src="assets/img/premio-1.jpg" alt="Prêmio Master Empresarial">
       <img src="assets/img/premio-2.jpg" alt="Prêmio Master Empresarial">
       <img src="assets/img/passarela-2.jpg" alt="Ezequias Luz">
+    </div>
+  </div>
+</section>
+
+<section class="section reveal" id="depoimentos">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow" data-i18n="depTag">O que os alunos dizem</span>
+      <h2 data-i18n="depTitle">Depoimentos reais de quem treina comigo</h2>
+    </div>
+    <div class="dep-grid" id="dep-grid">
+      <p style="color:var(--muted);font-size:0.86rem;" id="dep-loading">Carregando depoimentos...</p>
     </div>
   </div>
 </section>
@@ -579,6 +683,26 @@ const dict = {
   videoTag:{pt:"Na prática",es:"En la práctica"},
   videoTitle:{pt:"3 atividades para estimular a coordenação motora",es:"3 actividades para estimular la coordinación motora"},
   videoP:{pt:"Separei 3 atividades simples de psicomotricidade, feitas com o que você já tem em casa, para estimular coordenação motora, equilíbrio e atenção em crianças e adolescentes com TEA. Um conteúdo prático para famílias aplicarem no dia a dia, sem precisar de material especial.",es:"Preparé 3 actividades simples de psicomotricidad, hechas con lo que ya tienes en casa, para estimular coordinación motora, equilibrio y atención en niños y adolescentes con TEA. Un contenido práctico para que las familias lo apliquen en el día a día, sin necesitar material especial."},
+  navPac:{pt:"Pacotes",es:"Paquetes"},
+  pacTag:{pt:"Investimento",es:"Inversión"},
+  pacTitle:{pt:"Escolha o formato que se encaixa na sua rotina",es:"Elige el formato que se ajusta a tu rutina"},
+  pacSub:{pt:"Quanto maior o compromisso, maior a economia — e mais consistente é o resultado.",es:"Cuanto mayor el compromiso, mayor el ahorro — y más consistente el resultado."},
+  pac1Tag:{pt:"Avulsa",es:"Suelta"},
+  pac1Title:{pt:"Hora aula",es:"Hora de clase"},
+  pac1P:{pt:"Ideal para testar o método",es:"Ideal para probar el método"},
+  pac2Tag:{pt:"Semanal",es:"Semanal"},
+  pac2Title:{pt:"Pacote semanal",es:"Paquete semanal"},
+  pac2P:{pt:"5% de desconto sobre o valor avulso",es:"5% de descuento sobre el valor suelto"},
+  pac3Tag:{pt:"Mais escolhido",es:"El más elegido"},
+  pac3Title:{pt:"Pacote mensal",es:"Paquete mensual"},
+  pac3P:{pt:"15% de desconto, acompanhamento contínuo",es:"15% de descuento, seguimiento continuo"},
+  pac4Tag:{pt:"Trimestral",es:"Trimestral"},
+  pac4Title:{pt:"Pacote trimestral",es:"Paquete trimestral"},
+  pac4P:{pt:"20% de desconto sobre o valor avulso",es:"20% de descuento sobre el valor suelto"},
+  pac5Tag:{pt:"Melhor custo-benefício",es:"Mejor relación calidad-precio"},
+  pac5Title:{pt:"Pacote anual",es:"Paquete anual"},
+  pac5P:{pt:"30% de desconto — o maior de todos os planos",es:"30% de descuento — el mayor de todos los planes"},
+  pacBtn:{pt:"Consultar valores no WhatsApp",es:"Consultar valores por WhatsApp"},
   diagTitle:{pt:"Descubra o que está travando o seu resultado",es:"Descubre qué está frenando tu resultado"},
   diagResTag:{pt:"Seu diagnóstico",es:"Tu diagnóstico"},
   diagResTitle:{pt:"O que falta não é esforço, é acompanhamento",es:"Lo que falta no es esfuerzo, es seguimiento"},
@@ -588,6 +712,8 @@ const dict = {
   resTag:{pt:"Resultados reais",es:"Resultados reales"},
   resTitle:{pt:"Alunos que saíram do genérico e mudaram de fato",es:"Alumnos que dejaron lo genérico y cambiaron de verdad"},
   resCap:{pt:"Antes e depois de aluno",es:"Antes y después de alumno"},
+  depTag:{pt:"O que os alunos dizem",es:"Lo que dicen los alumnos"},
+  depTitle:{pt:"Depoimentos reais de quem treina comigo",es:"Testimonios reales de quienes entrenan conmigo"},
   comuTag:{pt:"Reconhecimento e constância",es:"Reconocimiento y constancia"},
   comuTitle:{pt:"O compromisso diário dos nossos alunos",es:"El compromiso diario de nuestros alumnos"},
   comuSub:{pt:"O compromisso diário dos nossos alunos em movimento e evolução constante.",es:"El compromiso diario de nuestros alumnos en movimiento y evolución constante."},
@@ -607,6 +733,7 @@ const dict = {
   contCardP:{pt:"Me conte seu objetivo e se prefere treino online ou presencial. Eu respondo pessoalmente e monto o próximo passo com você.",es:"Cuéntame tu objetivo y si prefieres entrenamiento online o presencial. Yo respondo personalmente y armamos el próximo paso juntos."},
   contCardBtn:{pt:"Chamar no WhatsApp",es:"Escribir por WhatsApp"},
   qrText:{pt:"Aponte a câmera do celular e siga meu Instagram para acompanhar treinos e resultados de alunos.",es:"Apunta la cámara del celular y sigue mi Instagram para ver entrenamientos y resultados de alumnos."},
+  payText:{pt:"Pagamento facilitado: alunos no Brasil pagam via PIX. Alunos em Portugal, Espanha e demais países pagam via transferência internacional (IBAN), em euros.",es:"Pago facilitado: alumnos en Brasil pagan por PIX. Alumnos en Portugal, España y demás países pagan por transferencia internacional (IBAN), en euros."},
   footRights:{pt:"Ezequias Luz, Educador Físico. Todos os direitos reservados.",es:"Ezequias Luz, Educador Físico. Todos los derechos reservados."}
 };
 
@@ -698,6 +825,61 @@ const io = new IntersectionObserver((entries)=>{
   entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
 },{threshold:0.12});
 document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+
+<!-- ================= Depoimentos dinâmicos (via planilha publicada) ================= -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+<script>
+/* PASSO A FAZER: troque a linha abaixo pelo link CSV gerado em
+   Arquivo > Compartilhar > Publicar na Web (formato CSV) da planilha de respostas. */
+const DEPOIMENTOS_CSV_URL = "https://docs.google.com/spreadsheets/d/1gn2NeKKuwzLq6EFWq1v4cqYxnv4C-kI43FOJt3GvdXE/export?format=csv";
+
+function loadDepoimentos(){
+  const grid = document.getElementById('dep-grid');
+  if(!grid || DEPOIMENTOS_CSV_URL.includes('COLE_AQUI')){
+    if(grid) grid.innerHTML = '';
+    return;
+  }
+  Papa.parse(DEPOIMENTOS_CSV_URL, {
+    download: true,
+    header: true,
+    complete: function(results){
+      const rows = results.data.filter(r=>{
+        const autorizado = (r['Autorizo o uso do meu nome e depoimento no site e redes sociais']||'').trim().toLowerCase();
+        const aprovado = (r['Aprovado']||'').trim().toLowerCase();
+        return autorizado === 'sim' && aprovado === 'sim';
+      });
+      if(rows.length === 0){
+        grid.innerHTML = '';
+        return;
+      }
+      grid.innerHTML = '';
+      rows.forEach(r=>{
+        const nome = (r['Nome completo']||'').trim();
+        const local = (r['País/cidade onde você treinou/treina comigo']||'').trim();
+        const frase = (r['O que você diria pra alguém em dúvida se vale a pena começar?']||'').trim();
+        const inicial = nome.charAt(0).toUpperCase() || '?';
+        const card = document.createElement('div');
+        card.className = 'dep-card';
+        card.innerHTML = `
+          <div class="dep-top">
+            <div class="dep-avatar">${inicial}</div>
+            <div>
+              <div class="dep-name">${nome}</div>
+              <div class="dep-loc">${local}</div>
+            </div>
+          </div>
+          <p class="dep-quote">"${frase}"</p>
+        `;
+        grid.appendChild(card);
+      });
+    },
+    error: function(){
+      grid.innerHTML = '';
+    }
+  });
+}
+loadDepoimentos();
 </script>
   <div style="text-align: center; margin: 40px 0; padding: 20px;">
   <a class="btn btn-primary" href="https://www.instagram.com/reel/Da0zNvzpKwv/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" rel="noopener">
