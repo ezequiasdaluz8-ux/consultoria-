@@ -239,22 +239,22 @@ nav.links a:hover{color:var(--white);}
 .diferencial img{border-radius:var(--radius);object-fit:contain;width:100%;height:auto;background:var(--black);}
 @media(max-width:860px){.diferencial{grid-template-columns:1fr;padding:32px;}}
 
-.video-diferencial{
-  margin-top:40px;background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
-  padding:44px 56px;display:flex;gap:40px;align-items:flex-start;flex-wrap:wrap;
+.video-diferencial-wrap{
+  margin-top:40px;display:grid;grid-template-columns:repeat(2,1fr);gap:24px;
 }
-.video-text{flex:0 0 280px;max-width:280px;}
-.video-text p{color:var(--silver);}
-.video-grid{
-  display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:18px;
-  flex:1 1 380px;
+.video-item-card{
+  background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
+  padding:32px;display:flex;flex-direction:column;justify-content:space-between;gap:20px;
 }
-.video-card{
-  position:relative;width:100%;aspect-ratio:9/16;overflow:hidden;
-  border-radius:var(--radius);background:#000;border:1px solid var(--line);
+.video-media-box{
+  position:relative;width:100%;aspect-ratio:16/9;overflow:hidden;
+  border-radius:var(--radius);background:#000;border:1px solid var(--line);margin-top:12px;
 }
-.video-card video{width:100%;height:100%;object-fit:cover;display:block;}
-@media(max-width:860px){.video-diferencial{padding:28px;flex-direction:column;}.video-text{flex:1 1 auto;max-width:none;}.video-grid{grid-template-columns:repeat(auto-fill,minmax(160px,1fr));width:100%;}}
+.video-media-box video{width:100%;height:100%;object-fit:cover;display:block;}
+
+@media(max-width:860px){
+  .video-diferencial-wrap{grid-template-columns:1fr;}
+}
 
 /* ===== DIAGNOSTICO ===== */
 .diag{background:linear-gradient(180deg,var(--black),#111113 60%);}
@@ -574,31 +574,49 @@ footer{border-top:1px solid var(--line);padding:26px 0;}
       </div>
     </div>
 
-    <div class="video-diferencial reveal">
-      <div class="video-text">
-        <span class="eyebrow" data-i18n="videoTag">Na prática</span>
-        <h3 data-i18n="videoTitle" style="margin-top:8px;">Atividades práticas de psicomotricidade</h3>
-        <p data-i18n="videoP" style="margin-top:12px;">Exercícios e atividades desenvolvidas para estimular coordenação motora, equilíbrio, noção espacial e foco. Conteúdos práticos preparados para aplicação no dia a dia, respeitando o ritmo e as necessidades individuais de desenvolvimento.</p>
-        <div style="margin-top: 24px;">
-          <a class="btn btn-primary btn-sm" href="https://www.instagram.com/reel/Da0zNvzpKwv/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" rel="noopener">
-            Assistir Vídeo no Instagram ↗
+    <!-- ===== SEÇÃO DOS VÍDEOS DE PRÁTICA ===== -->
+    <div class="video-diferencial-wrap reveal">
+      
+      <!-- CARD VÍDEO 1 -->
+      <div class="video-item-card">
+        <div>
+          <span class="eyebrow" data-i18n="v1Tag">Vídeo 1 • Coordenação Ampla</span>
+          <h3 data-i18n="v1Title" style="margin-top:8px;">3 Atividades Práticas para Coordenação Motora em Crianças com TEA</h3>
+          <p data-i18n="v1P" style="margin-top:12px;">Exercícios dinâmicos utilizando materiais simples do dia a dia (bola suíça, bambolês e cones). Trabalha o planejamento motor, a agilidade e o controle corporal de forma lúdica e acessível.</p>
+          <div class="video-media-box">
+            <video controls preload="metadata" playsinline poster="assets/img/passarela-1.jpg">
+              <source src="assets/atividades-coordenacao-tea.mp4" type="video/mp4">
+              Seu navegador não suporta a reprodução de vídeo HTML5.
+            </video>
+          </div>
+        </div>
+        <div style="margin-top:20px;">
+          <a class="btn btn-primary btn-sm" href="https://www.instagram.com/reel/Da0zNvzpKwv/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" rel="noopener" data-i18n="vBtn">
+            ASSISTIR VÍDEO NO INSTAGRAM ↗
           </a>
         </div>
       </div>
-      <div class="video-grid">
-        <div class="video-card">
-          <video controls preload="metadata" playsinline poster="assets/img/passarela-1.jpg">
-            <source src="assets/atividades-coordenacao-tea.mp4" type="video/mp4">
-            Seu navegador não suporta a reprodução de vídeo HTML5.
-          </video>
+
+      <!-- CARD VÍDEO 2 -->
+      <div class="video-item-card">
+        <div>
+          <span class="eyebrow" data-i18n="v2Tag">Vídeo 2 • Foco e Autonomia</span>
+          <h3 data-i18n="v2Title" style="margin-top:8px;">Desenho e Pintura Estruturada no TEA</h3>
+          <p data-i18n="v2P" style="margin-top:12px;">Atividades de traçado e pintura favorecem o estado de hiperfoco e estimulam a coordenação motora fina. Mais do que precisão, a prática desenvolve paciência, organização espacial e autonomia em um ambiente seguro.</p>
+          <div class="video-media-box">
+            <video controls preload="metadata" playsinline poster="assets/img/passarela-1.jpg">
+              <source src="assets/nova-atividade.mp4" type="video/mp4">
+              Seu navegador não suporta a reprodução de vídeo HTML5.
+            </video>
+          </div>
         </div>
-        <div class="video-card">
-          <video controls preload="metadata" playsinline poster="assets/img/passarela-1.jpg">
-            <source src="assets/nova-atividade.mp4" type="video/mp4">
-            Seu navegador não suporta a reprodução de vídeo HTML5.
-          </video>
+        <div style="margin-top:20px;">
+          <a class="btn btn-primary btn-sm" href="https://www.instagram.com/reel/DbG9QG1J_Kg/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" rel="noopener" data-i18n="vBtn">
+            ASSISTIR VÍDEO NO INSTAGRAM ↗
+          </a>
         </div>
       </div>
+
     </div>
   </div>
 </section>
@@ -793,9 +811,16 @@ const dict = {
   difTitle:{pt:"Psicomotricidade e cuidado com o TEA",es:"Psicomotricidad y cuidado con el TEA"},
   difP:{pt:"Além da musculação, atuo também com psicomotricidade voltada para crianças e adolescentes com Transtorno do Espectro Autista no CETEA. Um olhar sensível sobre o movimento, que carrego também para o modo como conduzo cada aluno da consultoria e do presencial.",es:"Además de la musculación, trabajo también con psicomotricidad orientada a niños y adolescentes con Trastorno del Espectro Autista en el CETEA. Una mirada sensible sobre el movimiento, que también aplico en cada alumno de la asesoría y del presencial."},
   difP2: {pt: "Cada atividade é pensada para respeitar o tempo e as particularidades de cada criança, com foco em coordenação, equilíbrio e desenvolvimento motor de forma leve e acolhedora.", es: "Cada actividad está pensada para respetar el tiempo y las particularidades de cada niño, con foco en coordinación, equilibrio y desarrollo motor de forma leve y acogedora."},
-  videoTag:{pt:"Na prática",es:"En la práctica"},
-  videoTitle:{pt:"Atividades práticas de psicomotricidade",es:"Actividades prácticas de psicomotricidad"},
-  videoP:{pt:"Exercícios e atividades desenvolvidas para estimular coordenação motora, equilíbrio, noção espacial e foco. Conteúdos práticos preparados para aplicação no dia a dia, respeitando o ritmo e as necessidades individuais de desenvolvimento.",es:"Ejercicios y actividades desarrolladas para estimular la coordinación motora, el equilibrio, la noción espacial y el enfoque. Contenidos prácticos preparados para la aplicación diaria, respetando el ritmo y las necesidades individuales de desarrollo."},
+  
+  /* i18n dos Vídeos da Psicomotricidade */
+  v1Tag:{pt:"Vídeo 1 • Coordenação Ampla",es:"Video 1 • Coordinación Amplia"},
+  v1Title:{pt:"3 Atividades Práticas para Coordenação Motora em Crianças com TEA",es:"3 Actividades Prácticas para Coordinación Motora en Niños con TEA"},
+  v1P:{pt:"Exercícios dinâmicos utilizando materiais simples do dia a dia (bola suíça, bambolês e cones). Trabalha o planejamento motor, a agilidade e o controle corporal de forma lúdica e acessível.",es:"Ejercicios dinámicos utilizando materiales simples del día a día (pelota suiza, aros y conos). Trabaja la planificación motora, la agilidad y el control corporal de forma lúdica y accesible."},
+  v2Tag:{pt:"Vídeo 2 • Foco e Autonomia",es:"Video 2 • Enfoque y Autonomía"},
+  v2Title:{pt:"Desenho e Pintura Estruturada no TEA",es:"Dibujo y Pintura Estructurada en el TEA"},
+  v2P:{pt:"Atividades de traçado e pintura favorecem o estado de hiperfoco e estimulam a coordenação motora fina. Mais do que precisão, a prática desenvolve paciência, organização espacial e autonomia em um ambiente seguro.",es:"Actividades de trazo y pintura favorecen el estado de hiperenfoque y estimulan la coordinación motora fina. Más que precisión, la práctica desarrolla paciencia, organización espacial y autonomía en un ambiente seguro."},
+  vBtn:{pt:"ASSISTIR VÍDEO NO INSTAGRAM ↗",es:"VER VIDEO EN INSTAGRAM ↗"},
+
   navPac:{pt:"Pacotes",es:"Paquetes"},
   pacTag:{pt:"Investimento",es:"Inversión"},
   pacTitle:{pt:"Escolha o formato que se encaixa na sua rotina",es:"Elige el formato que se ajusta a tu rutina"},
