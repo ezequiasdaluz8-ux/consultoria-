@@ -247,10 +247,11 @@ nav.links a:hover{color:var(--white);}
   padding:32px;display:flex;flex-direction:column;justify-content:space-between;gap:20px;
 }
 .video-media-box{
-  position:relative;width:100%;aspect-ratio:16/9;overflow:hidden;
+  position:relative;width:100%;max-width:280px;margin-left:auto;margin-right:auto;
+  aspect-ratio:9/16;overflow:hidden;
   border-radius:var(--radius);background:#000;border:1px solid var(--line);margin-top:12px;
 }
-.video-media-box video{width:100%;height:100%;object-fit:cover;display:block;}
+.video-media-box video{width:100%;height:100%;object-fit:contain;display:block;background:#000;}
 
 @media(max-width:860px){
   .video-diferencial-wrap{grid-template-columns:1fr;}
