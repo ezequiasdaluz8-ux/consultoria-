@@ -100,51 +100,66 @@ nav.links a:hover{color:var(--white);}
 /* Esconde o menu hamburguer antigo */
 .menu-toggle { display: none !important; }
 
-/* ===== ADAPTAÇÃO RESPONSIVA DO HEADER NO MOBILE ===== */
+/* ===== ADAPTAÇÃO RESPONSIVA DO HEADER NO MOBILE (CORRIGIDA) ===== */
 @media(max-width:920px){
-  body {
-    padding-top: 10px; /* Garante margem para a nova altura do topo fixo */
+  header {
+    padding: 0;
   }
 
   .nav-inner {
-    flex-direction: column !important;
+    display: flex !important;
+    flex-wrap: wrap !important;
+    align-items: center !important;
+    justify-content: space-between !important;
     padding: 10px 16px 6px 16px !important;
-    gap: 8px !important;
+    gap: 8px 0 !important;
   }
 
-  /* Linha 1: Marca de um lado, Ações (Idioma + WhatsApp) do outro */
+  /* Linha 1: Marca à esquerda, botões à direita */
   .brand {
     order: 1;
+    flex: 0 0 auto;
   }
   
   .head-actions {
     order: 2;
-    margin-left: auto;
-    gap: 8px;
+    flex: 0 0 auto;
+    margin-left: 0 !important;
+    display: flex;
+    align-items: center;
+    gap: 6px !important;
+  }
+
+  .lang-toggle button {
+    padding: 5px 9px !important;
+    font-size: 0.68rem !important;
   }
 
   .btn-sm {
-    padding: 6px 12px !important;
-    font-size: 0.7rem !important;
+    padding: 6px 10px !important;
+    font-size: 0.68rem !important;
+    height: 30px;
+    display: inline-flex;
+    align-items: center;
   }
 
-  /* Linha 2: Esteira rolável para os Links de navegação */
+  /* Linha 2: Esteira de Links preenchendo a largura total */
   nav.links {
     order: 3;
+    flex: 0 0 100% !important;
     display: flex !important;
     position: static !important;
     width: 100% !important;
     flex-direction: row !important;
     overflow-x: auto !important;
     white-space: nowrap !important;
-    padding: 8px 0 4px 0 !important;
+    padding: 8px 0 2px 0 !important;
     gap: 16px !important;
     border-top: 1px solid var(--line);
-    margin-top: 2px;
+    margin-top: 4px;
     -webkit-overflow-scrolling: touch;
   }
 
-  /* Remove a barra visual de rolagem */
   nav.links::-webkit-scrollbar {
     display: none !important;
     width: 0 !important;
@@ -152,10 +167,14 @@ nav.links a:hover{color:var(--white);}
   }
 
   nav.links a {
-    padding: 2px 4px !important;
-    border: none !important;
+    padding: 2px 0 !important;
     font-size: 0.75rem !important;
     flex-shrink: 0 !important;
+  }
+
+  /* Ajuste de espaçamento para o topo do site não sumir sob o header */
+  .hero {
+    padding-top: 130px !important;
   }
 }
 
