@@ -206,7 +206,7 @@ nav.links a:hover{color:var(--white);}
   content:"";position:absolute;top:0;left:0;right:0;height:3px;
   background:linear-gradient(90deg,var(--red-deep),var(--red));
 }
-.serie-label{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;}
+.serie-label{display:flex;justify-between:space-between;align-items:center;margin-bottom:24px;}
 .serie-label .tag{font-family:'Oswald',sans-serif;font-size:0.74rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);}
 .serie-label .tag b{color:var(--red);}
 .bar-track{display:flex;gap:6px;margin-bottom:34px;}
@@ -253,7 +253,7 @@ nav.links a:hover{color:var(--white);}
 .premio-strip{display:flex;gap:18px;margin-top:56px;overflow-x:auto;padding-bottom:8px;}
 .premio-strip img{height:220px;width:auto;border-radius:var(--radius);flex-shrink:0;}
 
-/* ===== DEPOIMENTOS COM 3 PERGUNTAS ===== */
+/* ===== DEPOIMENTOS DESTAQUE ===== */
 .dep-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
 .dep-card{
   background:var(--panel);
@@ -267,31 +267,56 @@ nav.links a:hover{color:var(--white);}
   transition:transform .2s ease, border-color .2s ease;
 }
 .dep-card:hover{
-  transform:translateY(-2px);
-  border-color:rgba(216,31,46,0.4);
+  transform:translateY(-3px);
+  border-color:rgba(216,31,46,0.5);
 }
-.dep-avatar{width:48px;height:48px;border-radius:50%;background:var(--red);color:var(--white);display:flex;align-items:center;justify-content:center;font-family:'Anton',sans-serif;font-size:1.2rem;flex-shrink:0;}
+.dep-avatar{
+  width:48px;height:48px;border-radius:50%;background:var(--red);
+  color:var(--white);display:flex;align-items:center;justify-content:center;
+  font-family:'Anton',sans-serif;font-size:1.2rem;flex-shrink:0;
+}
 .dep-top{display:flex;align-items:center;gap:14px;border-bottom:1px solid var(--line);padding-bottom:14px;}
-.dep-name{font-family:'Oswald',sans-serif;font-size:0.95rem;font-weight:600;}
-.dep-loc{font-size:0.76rem;color:var(--muted);display:flex;align-items:center;gap:6px;margin-top:2px;}
-.dep-block{display:flex;flex-direction:column;gap:4px;}
+.dep-name{
+  font-family:'Oswald',sans-serif;
+  font-size:1rem;
+  font-weight:600;
+  text-transform:capitalize;
+  color:var(--white);
+}
+.dep-loc{
+  font-size:0.78rem;
+  color:var(--muted);
+  display:flex;
+  align-items:center;
+  gap:6px;
+  margin-top:2px;
+  text-transform:capitalize;
+}
+.dep-block{
+  display:flex;
+  flex-direction:column;
+  gap:6px;
+  margin-top:14px;
+}
 .dep-question-label{
   font-family:'Oswald',sans-serif;
-  font-size:0.7rem;
+  font-size:0.72rem;
   text-transform:uppercase;
   letter-spacing:0.08em;
-  color:var(--red);
-  background:rgba(216,31,46,0.08);
-  padding:4px 8px;
+  color:#ff3b4b;
+  background:rgba(216,31,46,0.12);
+  padding:4px 10px;
   border-radius:4px;
-  border-left:2px solid var(--red);
+  border-left:3px solid var(--red);
+  display:inline-block;
+  width:fit-content;
 }
 .dep-quote{
-  font-size:0.88rem;
+  font-size:0.9rem;
   color:var(--silver);
-  line-height:1.45;
+  line-height:1.5;
   font-style:italic;
-  margin-top:2px;
+  padding-left:4px;
 }
 @media(max-width:920px){.dep-grid{grid-template-columns:repeat(2,1fr);}}
 @media(max-width:600px){.dep-grid{grid-template-columns:1fr;}}
@@ -310,7 +335,7 @@ nav.links a:hover{color:var(--white);}
 @media(max-width:860px){.contato-inner{grid-template-columns:1fr;}}
 
 footer{border-top:1px solid var(--line);padding:26px 0;}
-.footer-inner{display:flex;justify-between:space-between;align-items:center;flex-wrap:wrap;gap:12px;font-family:'Oswald',sans-serif;font-size:0.74rem;letter-spacing:0.04em;color:var(--muted);text-transform:uppercase;}
+.footer-inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;font-family:'Oswald',sans-serif;font-size:0.74rem;letter-spacing:0.04em;color:var(--muted);text-transform:uppercase;}
 .footer-inner .socials{display:flex;gap:16px;}
 
 .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease, transform .7s ease;}
@@ -404,7 +429,7 @@ document.querySelectorAll('nav.links a').forEach(a=>{
     </div>
     <div>
       <span class="eyebrow" data-i18n="sobreTag">Sobre mim</span>
-      <h2 data-i18n="sobreTitle">Mais de dez anos formando resultados, não promessas</h2>
+      <h2 data-i18n="sobreTitle">Mais de dez anos forming resultados, não promessas</h2>
       <p data-i18n="sobreP1">Sou Ezequias Luz, Educador Físico licenciado e bacharel, com mais de dez anos de estrada como Personal Trainer. Já passei por academias, competições e programas sociais, e hoje dedico meu trabalho a duas frentes que amo, a musculação com base em biomecânica e a psicomotricidade aplicada a crianças e adolescentes com TEA no CETEA.</p>
       <p data-i18n="sobreP2">Atendo alunos presenciais na minha região e também clientes de outras cidades e países através da consultoria online, com alunos no Brasil, na Espanha e em Portugal. Cada plano é construído sobre o seu corpo, sua rotina e seus limites reais.</p>
       <ul class="sobre-list">
@@ -884,32 +909,45 @@ function getFlagEmoji(locationStr) {
 
 function loadDepoimentos(){
   const grid = document.getElementById('dep-grid');
-  if(!grid || DEPOIMENTOS_CSV_URL.includes('COLE_AQUI')){
-    if(grid) grid.innerHTML = '';
-    return;
-  }
+  if(!grid) return;
+
   Papa.parse(DEPOIMENTOS_CSV_URL, {
     download: true,
     header: true,
     complete: function(results){
-      const rows = results.data.filter(r=>{
-        const autorizado = (r['Autorizo o uso do meu nome e depoimento no site e redes sociais']||'').trim().toLowerCase();
-        const aprovado = (r['Aprovado']||'').trim().toLowerCase();
+      const rows = results.data.filter(r => {
+        const keys = Object.keys(r);
+        const autKey = keys.find(k => k.toLowerCase().includes('autorizo')) || '';
+        const aprKey = keys.find(k => k.toLowerCase().includes('aprovado')) || '';
+        
+        const autorizado = (r[autKey] || '').trim().toLowerCase();
+        const aprovado = (r[aprKey] || '').trim().toLowerCase();
         return autorizado === 'sim' && aprovado === 'sim';
       });
+
       if(rows.length === 0){
-        grid.innerHTML = '';
+        grid.innerHTML = '<p style="color:var(--muted); font-size:0.9rem;">Nenhum depoimento publicado no momento.</p>';
         return;
       }
+
       grid.innerHTML = '';
-      rows.forEach(r=>{
-        const nome = (r['Nome completo']||'').trim();
-        const local = (r['País/cidade onde você treinou/treina comigo']||'').trim();
+
+      rows.forEach(r => {
+        const keys = Object.keys(r);
+
+        const nomeKey = keys.find(k => k.toLowerCase().includes('nome')) || '';
+        const localKey = keys.find(k => k.toLowerCase().includes('país') || k.toLowerCase().includes('cidade') || k.toLowerCase().includes('onde')) || '';
         
-        // As 3 Perguntas do formulário
-        const q1 = (r['Qual era sua principal dificuldade antes de treinar comigo?']||'').trim();
-        const q2 = (r['O que mudou no seu corpo, na sua saúde ou na sua rotina depois que começamos?']||'').trim();
-        const q3 = (r['O que você diria pra alguém em dúvida se vale a pena começar?']||'').trim();
+        const q1Key = keys.find(k => k.toLowerCase().includes('rotina') || k.toLowerCase().includes('dificuldade') || k.toLowerCase().includes('antes')) || '';
+        const q2Key = keys.find(k => k.toLowerCase().includes('mudou') || k.toLowerCase().includes('corpo')) || '';
+        const q3Key = keys.find(k => k.toLowerCase().includes('dúvida') || k.toLowerCase().includes('valer') || k.toLowerCase().includes('diria')) || '';
+
+        const nome = (r[nomeKey] || '').trim();
+        const local = (r[localKey] || '').trim();
+        
+        const q1 = (r[q1Key] || '').trim();
+        const q2 = (r[q2Key] || '').trim();
+        const q3 = (r[q3Key] || '').trim();
 
         const inicial = nome.charAt(0).toUpperCase() || '?';
         const flag = getFlagEmoji(local);
@@ -918,24 +956,25 @@ function loadDepoimentos(){
         card.className = 'dep-card';
         
         let blocksHTML = '';
+
         if(q1) {
           blocksHTML += `
             <div class="dep-block">
-              <span class="dep-question-label">Como era antes</span>
+              <span class="dep-question-label">⚡ Como era antes</span>
               <p class="dep-quote">"${q1}"</p>
             </div>`;
         }
         if(q2) {
           blocksHTML += `
             <div class="dep-block">
-              <span class="dep-question-label">O que mudou</span>
+              <span class="dep-question-label">🔥 O que mudou</span>
               <p class="dep-quote">"${q2}"</p>
             </div>`;
         }
         if(q3) {
           blocksHTML += `
             <div class="dep-block">
-              <span class="dep-question-label">Recado para quem tem dúvida</span>
+              <span class="dep-question-label">💡 Recado para quem tem dúvida</span>
               <p class="dep-quote">"${q3}"</p>
             </div>`;
         }
@@ -948,16 +987,20 @@ function loadDepoimentos(){
               <div class="dep-loc">${flag} <span>${local}</span></div>
             </div>
           </div>
-          ${blocksHTML}
+          <div class="dep-content">
+            ${blocksHTML}
+          </div>
         `;
+
         grid.appendChild(card);
       });
     },
     error: function(){
-      grid.innerHTML = '';
+      grid.innerHTML = '<p style="color:var(--muted);">Erro ao carregar depoimentos.</p>';
     }
   });
 }
+
 loadDepoimentos();
 </script>
 </body>
