@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+html_content = '''<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
@@ -253,14 +253,45 @@ nav.links a:hover{color:var(--white);}
 .premio-strip{display:flex;gap:18px;margin-top:56px;overflow-x:auto;padding-bottom:8px;}
 .premio-strip img{height:220px;width:auto;border-radius:var(--radius);flex-shrink:0;}
 
-/* ===== DEPOIMENTOS ===== */
-.dep-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--line);border:1px solid var(--line);}
-.dep-card{background:var(--panel);padding:34px 30px;display:flex;flex-direction:column;gap:16px;}
+/* ===== DEPOIMENTOS MELHORADO ===== */
+.dep-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+.dep-card{
+  background:var(--panel);
+  padding:32px 28px;
+  display:flex;
+  flex-direction:column;
+  gap:16px;
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  position:relative;
+  transition:transform .2s ease, border-color .2s ease;
+}
+.dep-card:hover{
+  transform:translateY(-2px);
+  border-color:rgba(216,31,46,0.4);
+}
 .dep-avatar{width:48px;height:48px;border-radius:50%;background:var(--red);color:var(--white);display:flex;align-items:center;justify-content:center;font-family:'Anton',sans-serif;font-size:1.2rem;flex-shrink:0;}
 .dep-top{display:flex;align-items:center;gap:14px;}
 .dep-name{font-family:'Oswald',sans-serif;font-size:0.92rem;font-weight:600;}
-.dep-loc{font-size:0.76rem;color:var(--muted);}
-.dep-quote{font-size:0.94rem;color:var(--silver);}
+.dep-loc{font-size:0.76rem;color:var(--muted);display:flex;align-items:center;gap:6px;margin-top:2px;}
+.dep-question-label{
+  font-family:'Oswald',sans-serif;
+  font-size:0.72rem;
+  text-transform:uppercase;
+  letter-spacing:0.08em;
+  color:var(--red);
+  background:rgba(216,31,46,0.08);
+  padding:6px 12px;
+  border-radius:4px;
+  border-left:2px solid var(--red);
+  margin-top:4px;
+}
+.dep-quote{
+  font-size:0.95rem;
+  color:var(--white);
+  line-height:1.5;
+  font-style:italic;
+}
 @media(max-width:920px){.dep-grid{grid-template-columns:repeat(2,1fr);}}
 @media(max-width:600px){.dep-grid{grid-template-columns:1fr;}}
 
@@ -479,6 +510,11 @@ document.querySelectorAll('nav.links a').forEach(a=>{
         <span class="eyebrow" data-i18n="videoTag">Na prática</span>
         <h3 data-i18n="videoTitle" style="margin-top:8px;">3 atividades para estimular a coordenação motora</h3>
         <p data-i18n="videoP" style="margin-top:12px;">Separei 3 atividades simples de psicomotricidade, feitas com o que você já tem em casa, para estimular coordenação motora, equilíbrio e atenção em crianças e adolescentes com TEA. Um conteúdo prático para famílias aplicarem no dia a dia, sem precisar de material especial.</p>
+        <div style="margin-top: 24px;">
+          <a class="btn btn-primary btn-sm" href="https://www.instagram.com/reel/Da0zNvzpKwv/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" rel="noopener">
+            Assistir Vídeo no Instagram ↗
+          </a>
+        </div>
       </div>
       <div class="video-grid">
         <div class="video-card">
@@ -487,7 +523,6 @@ document.querySelectorAll('nav.links a').forEach(a=>{
             Seu navegador não suporta a reprodução de vídeo HTML5.
           </video>
         </div>
-        <!-- Para adicionar um novo vídeo, copie o bloco acima (div.video-card) e troque o src -->
       </div>
     </div>
   </div>
@@ -833,9 +868,18 @@ document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 <!-- ================= Depoimentos dinâmicos (via planilha publicada) ================= -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
 <script>
-/* PASSO A FAZER: troque a linha abaixo pelo link CSV gerado em
-   Arquivo > Compartilhar > Publicar na Web (formato CSV) da planilha de respostas. */
 const DEPOIMENTOS_CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vTrVaO-O0nSevkSO0z_hB-rHVxl58deTnCXSpXx6ymytdbIMYrNCNhIO5-Mzf6DUqB2ReVrBm-690z3/pub?gid=538026079&single=true&output=csv";
+
+function getFlagEmoji(locationStr) {
+  if (!locationStr) return '🌐';
+  const loc = locationStr.toLowerCase();
+
+  if (loc.includes('espanha') || loc.includes('spain') || loc.includes('españa')) return '🇪🇸';
+  if (loc.includes('portugal')) return '🇵🇹';
+  if (loc.includes('brasil') || loc.includes('brazil') || loc.includes('pa') || loc.includes('pará') || loc.includes('acará')) return '🇧🇷';
+  
+  return '🌐';
+}
 
 function loadDepoimentos(){
   const grid = document.getElementById('dep-grid');
@@ -862,6 +906,8 @@ function loadDepoimentos(){
         const local = (r['País/cidade onde você treinou/treina comigo']||'').trim();
         const frase = (r['O que você diria pra alguém em dúvida se vale a pena começar?']||'').trim();
         const inicial = nome.charAt(0).toUpperCase() || '?';
+        const flag = getFlagEmoji(local);
+        
         const card = document.createElement('div');
         card.className = 'dep-card';
         card.innerHTML = `
@@ -869,8 +915,11 @@ function loadDepoimentos(){
             <div class="dep-avatar">${inicial}</div>
             <div>
               <div class="dep-name">${nome}</div>
-              <div class="dep-loc">${local}</div>
+              <div class="dep-loc">${flag} <span>${local}</span></div>
             </div>
+          </div>
+          <div class="dep-question-label">
+            <b>O que diria para quem está em dúvida?</b>
           </div>
           <p class="dep-quote">"${frase}"</p>
         `;
@@ -884,10 +933,11 @@ function loadDepoimentos(){
 }
 loadDepoimentos();
 </script>
-  <div style="text-align: center; margin: 40px 0; padding: 20px;">
-  <a class="btn btn-primary" href="https://www.instagram.com/reel/Da0zNvzpKwv/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" rel="noopener">
-    Assistir Vídeo Prático no Instagram ↗
-  </a>
-</div>
 </body>
 </html>
+'''
+
+with open('index.html', 'w', encoding='utf-8') as f:
+    f.write(html_content)
+
+print("Arquivo gerado com sucesso!")
