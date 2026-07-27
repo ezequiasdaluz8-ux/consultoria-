@@ -5,7 +5,77 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Ezequias Luz | Educador Físico e Personal Trainer</title>
 <meta name="description" content="Consultoria online e treino presencial com acompanhamento real. Saúde, performance e resultados com Ezequias Luz.">
+
+<!-- ===== Compartilhamento em redes sociais (WhatsApp, Instagram, Facebook) =====
+     TROQUE "https://SEUSITE.com.br" pelo domínio real do seu site nas 2 linhas abaixo (og:image e og:url).
+     A imagem escolhida foi premio-2.jpg (a mesma do fundo do topo do site) por já ser a foto de
+     melhor qualidade e mais profissional que você usa — mostra você em um evento de reconhecimento,
+     o que passa autoridade já no preview do link. Se preferir outra foto sua (rosto visível, boa
+     iluminação, formato horizontal), é só trocar o nome do arquivo na linha do og:image. -->
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:title" content="Ezequias Luz | Educador Físico e Personal Trainer">
+<meta property="og:description" content="Consultoria online e treino presencial com acompanhamento real. Saúde, performance e resultados com Ezequias Luz.">
+<meta property="og:image" content="https://SEUSITE.com.br/assets/img/premio-2.jpg">
+<meta property="og:url" content="https://SEUSITE.com.br/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Ezequias Luz | Educador Físico e Personal Trainer">
+<meta name="twitter:description" content="Consultoria online e treino presencial com acompanhamento real. Saúde, performance e resultados com Ezequias Luz.">
+<meta name="twitter:image" content="https://SEUSITE.com.br/assets/img/premio-2.jpg">
+
+<!-- ===== Meta Pixel (Facebook/Instagram Ads) =====
+     TROQUE "SEU_PIXEL_ID" pelo número do seu pixel. Para conseguir:
+     1) Acesse business.facebook.com/events_manager
+     2) Crie um pixel (se ainda não tiver) em "Conectar fontes de dados"
+     3) Copie o ID numérico (só números) e cole nas 2 linhas marcadas abaixo
+     Sem isso, o site funciona normal — só não vai registrar visitantes para anúncios. -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', 'SEU_PIXEL_ID');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=SEU_PIXEL_ID&ev=PageView&noscript=1"
+/></noscript>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
+
+<!-- ===== Dados estruturados (ajuda o Google a entender quem você é, onde atende e como te contatar) =====
+     Preenchido com os dados que já existem no site. Se quiser, você pode me passar o endereço
+     completo do local de atendimento presencial que eu adiciono "streetAddress" também — não é
+     obrigatório, "addressLocality" já ajuda bastante na busca local. -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Ezequias Luz - Educador Físico e Personal Trainer",
+  "description": "Consultoria online e treino presencial com acompanhamento real. Especialista também em psicomotricidade para crianças e adolescentes com TEA.",
+  "image": "https://SEUSITE.com.br/assets/img/premio-2.jpg",
+  "telephone": "+5591985499350",
+  "priceRange": "$$",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Acará",
+    "addressRegion": "PA",
+    "addressCountry": "BR"
+  },
+  "areaServed": [
+    {"@type":"Country","name":"Brasil"},
+    {"@type":"Country","name":"Portugal"},
+    {"@type":"Country","name":"Espanha"}
+  ],
+  "sameAs": [
+    "https://instagram.com/ezequias.educador_fisico"
+  ]
+}
+</script>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Anton&family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600;700;800&display=swap');
 
@@ -226,8 +296,12 @@ nav.links a:hover{color:var(--white);}
 
 /* ===== PACOTES ===== */
 .pac-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:2px;background:var(--line);border:1px solid var(--line);}
-.pac-grid .serv-card{padding:32px 24px;}
+.pac-grid .serv-card{padding:32px 24px;position:relative;}
 .pac-grid .serv-card p{font-size:0.86rem;margin-top:10px;}
+.pac-icon{width:40px;height:40px;display:flex;align-items:center;justify-content:center;border:1px solid var(--line);border-radius:50%;color:var(--red);margin-bottom:16px;}
+.pac-icon svg{width:20px;height:20px;}
+.pac-featured{background:var(--panel2) !important;border-top:2px solid var(--red);}
+.pac-badge{position:absolute;top:-1px;right:-1px;background:var(--red);color:var(--white);font-family:'Oswald',sans-serif;font-size:0.62rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;padding:5px 10px;border-radius:0 0 0 var(--radius);}
 @media(max-width:920px){.pac-grid{grid-template-columns:repeat(2,1fr);}}
 @media(max-width:520px){.pac-grid{grid-template-columns:1fr;}}
 
@@ -586,8 +660,8 @@ footer{border-top:1px solid var(--line);padding:26px 0;}
           <h3 data-i18n="v1Title" style="margin-top:8px;">3 Atividades Práticas para Coordenação Motora em Crianças com TEA</h3>
           <p data-i18n="v1P" style="margin-top:12px;">Exercícios dinâmicos utilizando materiais simples do dia a dia (bola suíça, bambolês e cones). Trabalha o planejamento motor, a agilidade e o controle corporal de forma lúdica e acessível.</p>
           <div class="video-media-box">
-            <video controls preload="metadata" playsinline>
-              <source src="assets/atividades-coordenacao-tea.mp4" type="video/mp4">
+            <video class="lazy-video" controls preload="none" playsinline>
+              <source data-src="assets/atividades-coordenacao-tea.mp4" type="video/mp4">
               Seu navegador não suporta a reprodução de vídeo HTML5.
             </video>
           </div>
@@ -606,8 +680,8 @@ footer{border-top:1px solid var(--line);padding:26px 0;}
           <h3 data-i18n="v2Title" style="margin-top:8px;">Desenho e Pintura Estruturada no TEA</h3>
           <p data-i18n="v2P" style="margin-top:12px;">Atividades de traçado e pintura favorecem o estado de hiperfoco e estimulam a coordenação motora fina. Mais do que precisão, a prática desenvolve paciência, organização espacial e autonomia em um ambiente seguro.</p>
           <div class="video-media-box">
-            <video controls preload="metadata" playsinline>
-              <source src="assets/nova-atividade.mp4" type="video/mp4">
+            <video class="lazy-video" controls preload="none" playsinline>
+              <source data-src="assets/nova-atividade.mp4" type="video/mp4">
               Seu navegador não suporta a reprodução de vídeo HTML5.
             </video>
           </div>
@@ -632,26 +706,32 @@ footer{border-top:1px solid var(--line);padding:26px 0;}
     </div>
     <div class="pac-grid">
       <div class="serv-card">
+        <div class="pac-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div>
         <span class="tag" data-i18n="pac1Tag">Avulsa</span>
         <h3 data-i18n="pac1Title">Hora aula</h3>
         <p data-i18n="pac1P">Ideal para testar o método</p>
       </div>
       <div class="serv-card">
+        <div class="pac-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="17" rx="1"/><path d="M3 9h18M8 2v4M16 2v4"/></svg></div>
         <span class="tag" data-i18n="pac2Tag">Semanal</span>
         <h3 data-i18n="pac2Title">Pacote semanal</h3>
         <p data-i18n="pac2P">Pequeno desconto sobre o valor avulso</p>
       </div>
-      <div class="serv-card">
-        <span class="tag" data-i18n="pac3Tag">Mais escolhido</span>
+      <div class="serv-card pac-featured">
+        <span class="pac-badge" data-i18n="pac3Badge">Mais escolhido</span>
+        <div class="pac-icon" style="border-color:var(--red);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l2.9 6.3 6.9.9-5 4.9 1.2 6.9L12 17.8 5.9 21l1.2-6.9-5-4.9 6.9-.9L12 2z"/></svg></div>
+        <span class="tag" data-i18n="pac3Tag">Recomendado</span>
         <h3 data-i18n="pac3Title">Pacote mensal</h3>
         <p data-i18n="pac3P">Desconto maior, acompanhamento contínuo</p>
       </div>
       <div class="serv-card">
+        <div class="pac-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="17" rx="1"/><path d="M3 10h18M8 2v4M16 2v4M8 15h3"/></svg></div>
         <span class="tag" data-i18n="pac4Tag">Trimestral</span>
         <h3 data-i18n="pac4Title">Pacote trimestral</h3>
         <p data-i18n="pac4P">Desconto adicional sobre o mensal</p>
       </div>
       <div class="serv-card">
+        <div class="pac-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21c4.97-3.5 8-7.3 8-11.5A8 8 0 0 0 4 9.5C4 13.7 7.03 17.5 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg></div>
         <span class="tag" data-i18n="pac5Tag">Melhor custo-benefício</span>
         <h3 data-i18n="pac5Title">Pacote anual</h3>
         <p data-i18n="pac5P">Maior desconto de todos os planos</p>
@@ -834,7 +914,8 @@ const dict = {
   pac2Tag:{pt:"Semanal",es:"Semanal"},
   pac2Title:{pt:"Pacote semanal",es:"Paquete semanal"},
   pac2P:{pt:"5% de desconto sobre o valor avulso",es:"5% de descuento sobre el valor suelto"},
-  pac3Tag:{pt:"Mais escolhido",es:"El más elegido"},
+  pac3Tag:{pt:"Recomendado",es:"Recomendado"},
+  pac3Badge:{pt:"Mais escolhido",es:"El más elegido"},
   pac3Title:{pt:"Pacote mensal",es:"Paquete mensual"},
   pac3P:{pt:"15% de desconto, acompanhamento contínuo",es:"15% de descuento, seguimiento continuo"},
   pac4Tag:{pt:"Trimestral",es:"Trimestral"},
@@ -961,6 +1042,34 @@ function restartDiag(){
 
 renderQuestion();
 
+/* ================= Meta Pixel: rastrear cliques no WhatsApp ================= */
+document.querySelectorAll('a[href*="wa.me"]').forEach(function(link){
+  link.addEventListener('click', function(){
+    if (typeof fbq === 'function') { fbq('track', 'Lead'); }
+  });
+});
+
+/* ================= Lazy load dos vídeos (só baixa o arquivo quando a pessoa chega perto) =================
+   Para deixar ainda mais leve no futuro: suba os 2 vídeos como "não listados" no YouTube e troque
+   os blocos <video> por um <iframe> do YouTube. Isso tira o peso do vídeo do seu próprio site
+   (o YouTube cuida da compressão e do streaming). Se quiser, me manda o link do YouTube depois
+   de subir que eu já deixo o código pronto pra trocar. */
+const videoObserver = new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      const video = e.target;
+      const source = video.querySelector('source[data-src]');
+      if(source){
+        source.src = source.getAttribute('data-src');
+        video.load();
+        source.removeAttribute('data-src');
+      }
+      videoObserver.unobserve(video);
+    }
+  });
+},{threshold:0.1, rootMargin:'200px'});
+document.querySelectorAll('.lazy-video').forEach(v=>videoObserver.observe(v));
+
 /* ================= Scroll reveal ================= */
 const io = new IntersectionObserver((entries)=>{
   entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
@@ -1003,7 +1112,7 @@ function loadDepoimentos(){
       });
 
       if(rows.length === 0){
-        grid.innerHTML = '<p style="color:var(--muted); font-size:0.9rem;">Nenhum depoimento publicado no momento.</p>';
+        grid.innerHTML = depFallbackHTML();
         return;
       }
 
@@ -1073,9 +1182,19 @@ function loadDepoimentos(){
       });
     },
     error: function(){
-      grid.innerHTML = '<p style="color:var(--muted);">Erro ao carregar depoimentos.</p>';
+      grid.innerHTML = depFallbackHTML();
     }
   });
+}
+
+/* Fallback exibido só se a planilha não carregar ou não tiver depoimentos aprovados ainda.
+   Não inventa avaliações falsas — direciona para provas reais que já existem no site
+   (Instagram e as fotos de antes/depois na seção de Resultados). */
+function depFallbackHTML(){
+  return `
+    <div style="grid-column:1/-1;text-align:center;padding:32px 16px;border:1px solid var(--line);border-radius:var(--radius);background:var(--panel);">
+      <p style="font-size:0.94rem;">Novos depoimentos sendo atualizados. Enquanto isso, veja resultados reais de alunos na seção <a href="#resultados" style="color:var(--red);text-decoration:underline;">Resultados</a> ou no <a href="https://instagram.com/ezequias.educador_fisico" target="_blank" rel="noopener" style="color:var(--red);text-decoration:underline;">Instagram</a>.</p>
+    </div>`;
 }
 
 loadDepoimentos();
